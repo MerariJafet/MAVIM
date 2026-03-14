@@ -14,6 +14,7 @@ El núcleo de MAVIM está cimentado en 4 fases críticas de ejecución de la tar
 2. **[Fase de Arquitectura (The LEGO Map)](core/SOP_02_ARCHITECTURE.md):** Exige implementar siempre un patrón de Monolito Modular con fronteras estrictas.
 3. **[Fase de Síntesis Paralela](core/SOP_03_SYNTHESIS.md):** Dicta cómo iterar constructivamente sin colisionar con otros agentes usando Git Branches.
 4. **[Fase de Evaluación (The Gatekeeper)](core/SOP_04_EVALUATION.md):** Controles obligatorios de calidad, UX, Seguridad y consistencia lógica pre-despliegue.
+5. **[Fase de Resiliencia (Circuit Breakers)](core/SOP_05_RESILIENCE.md):** Políticas obligatorias de reintentos (Exponential Backoff) y Cortacircuitos ante APIs LLM caídas.
 
 ## Fase 3: The Intelligence Patterns (Blueprints)
 
@@ -25,11 +26,13 @@ Modelos de referencia técnicos base ('Bloques LEGO') listos para implementar ar
 4. **[ERP & CRM (Internal Ops)](patterns/07_ERP_CRM.md):** Desacoplamiento de flujos de venta y backoffice operativo.
 5. **[Logística On-Demand](patterns/08_ONDEMAND_LOGISTICS.md):** Indexación Espacial H3, Algoritmo de Surge Pricing y Batched Matching.
 6. **[AI App Modular (LLM Integration)](patterns/10_AI_APP_MODULAR.md):** Prevención de Prompt Injection, RAG pipeline aislado y Orchestration Core.
+7. **[Anti-Patrones (Lista Negra)](patterns/COMMON_TRAPS.md):** Prácticas estrictamente prohibidas en MAVIM (Fat controllers, IDs secuenciales, Floats en moneda, Transacciones rotas).
 
 ## Fase 4: Agent Roles (System Prompts)
 
 El "Cerebro" de la metodología. Instrucciones y metaprompts que cada agente MAVIM debe cargar antes de operar en el repositorio para alinear su comportamiento con los SOPs.
 
+0. **[MAVIM-Orchestrator (The Supreme Director)](roles/MAVIM_ORCHESTRATOR.md):** Rompe bucles infinitos, dicta la política suprema al resto de agentes, y asegura iteraciones positivas constantes.
 1. **[MAVIM-Architect (The Visionary)](roles/ARCHITECT.md):** Diseña los bloques LEGO y la estructura de datos basados en Monolitos Modulares.
 2. **[MAVIM-Developer (The Builder)](roles/DEVELOPER.md):** Construye la lógica funcional estrictamente dentro de las fronteras de los módulos asignados.
 3. **[MAVIM-Critic (The Gatekeeper)](roles/CRITIC.md):** Evalúa heurísticas UX, prevención de inyección AI, revisión de integridad de fronteras ("cross-imports") y cumplimiento de requerimientos lógicos.
