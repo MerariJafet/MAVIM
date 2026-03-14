@@ -4,6 +4,12 @@
 [![Vibe Coding](https://img.shields.io/badge/Vibe--Coding-Enabled-blueviolet)](https://x.com/karpathy)
 [![Built for Agents](https://img.shields.io/badge/Built--for-Claude--Code%20%7C%20Codex-blue)](https://github.com/MerariJafet/MAVIM)
 
+### ⚡ Quick Start (The One-Click Prompt)
+Copy and paste this into your favorite Agent (Claude Code, Cursor, Codex, Windsurf):
+```text
+Use MAVIM from github.com/MerariJafet/MAVIM to build [YOUR_APP_IDEA]. Run the setup script, assume the roles, and don't stop until the progress log is 100%.
+```
+
 **MAVIM** es el primer framework diseñado específicamente para que **Agentes de IA** (Claude Code, Cursor, Codex) construyan software de grado industrial de forma autónoma, sin perder el contexto y siguiendo estándares de ingeniería Senior.
 
 ### 🧠 ¿Por qué MAVIM?
