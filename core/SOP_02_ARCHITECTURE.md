@@ -18,3 +18,8 @@ Este es el SOP más importante de MAVIM. Establece que toda aplicación construi
 - Los módulos deben comunicarse entre sí exclusivamente mediante:
   - **Síncrona:** Llamadas a métodos o interfaces públicas bien definidas (Contratos).
   - **Asíncrona:** Mediante la emisión y suscripción a Eventos de Dominio (Domain Events).
+
+### 4. El Contrato de Entorno (Environment Contract)
+- **Regla Genérica:** Antes de escribir código, el `ARCHITECT` debe crear un archivo `ARCHITECTURE_CONTRACT.md`.
+- **Requisito:** Este archivo debe listar todos los puertos de red, nombres de variables de entorno (ej. `API_URL`, `DB_PORT`) y prefijos de rutas que el ecosistema utilizará unificadamente.
+- **Prohibición:** Queda terminantemente prohibido usar valores "quemados" (hardcoded) como `localhost:8080` dentro de la lógica de negocio (front o back). Todo debe consumirse desde el `.env`.

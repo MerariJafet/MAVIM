@@ -21,3 +21,12 @@ El agente **MAVIM-Critic** tiene autoridad para rechazar inmediatamente cualquie
 ## 5. Ceguera Transaccional
 - **[PROHIBIDO]** Procesar pagos o descontar stock sin usar **Transacciones de Base de Datos (BEGIN...COMMIT)**.  
   *Solución:* Todo flujo que muta más de un estado crítico simultáneamente, debe estar envuelto en transacciones atómicas seguras mediante `ACID` properties.
+
+## 6. El Silo del Programador
+- **[PROHIBIDO]** Creer que un módulo frontend o backend funciona solo porque pasa sus propios tests unitarios aislados, sin probar si se conecta realmente al resto de la arquitectura.
+
+## 7. La Ilusión del Puerto Fijo
+- **[PROHIBIDO]** Asumir que un servicio siempre estará en el mismo puerto (ej. `localhost:3000`). Siempre usar descubrimiento por variables de entorno y el `ARCHITECTURE_CONTRACT.md`.
+
+## 8. El Atajo Visual
+- **[PROHIBIDO]** Usar estilos rápidos o HTML crudo (`style="..."` o `<div class="...">` sin refactor) en lugar de instalar los componentes reutilizables dictados en `/patterns/00_DESIGN_SYSTEM_SHADCN.md`, lo cual genera deuda técnica estética insalvable.
