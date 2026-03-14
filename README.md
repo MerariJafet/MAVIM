@@ -1,10 +1,40 @@
 # MAVIM-Methodology
+**Multi Agentic VibeCoding Methodology**
 
-**MAVIM (Multi Agentic VibeCoding Methodology)**
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com)
+[![Built for Agents](https://img.shields.io/badge/Built%20for-AI%20Agents-blueviolet.svg)](#)
 
-MAVIM es una metodología diseñada para el desarrollo de software de inicio a fin utilizando VibeCoding y agentes de Inteligencia Artificial. La metodología captura la transición de escribir sintaxis manual a orquestar intenciones ("vibes") mediante agentes especializados.
+> **From high-level intent to production-ready SaaS in minutes.**
+> A methodology designed to transform the process of software creation from syntax-writing to intention-orchestrating, using specialized Autonomous AI Agents.
 
-Este repositorio no es solo código, sino un **Manual de Operaciones Ejecutable**, estructurado para que cualquier agente pueda descargar y comprender cómo ejecutar un proyecto estructurado y bien orquestado.
+---
+
+## ⚡ Agent Quick Start (The Bootloader)
+If you are an AI Agent (Claude Code, Cursor, Windsurf), start your execution loop here:
+👉 **READ: [`MAVIM.md`](MAVIM.md)** (Ultra-compressed 30-second primer)
+
+---
+
+## 🗺️ The 4 Critical Phases of MAVIM
+
+```text
++-----------------------+       +-------------------------+       +------------------------+       +-------------------------+
+|      PHASE 1          |       |        PHASE 2          |       |       PHASE 3          |       |        PHASE 4          |
+|    INTENTION          | ----> |      ARCHITECTURE       | ----> |      SYNTHESIS         | ----> |      EVALUATION         |
+|                       |       |                         |       |                        |       |                         |
+| User Vibe -> Spec     |       | The LEGO Map (Modular)  |       | Parallel Dev & PRs     |       | The Gatekeeper Review   |
+| (INTENT_MANIFEST)     |       | (DATA_SCHEMA, UUIDs)    |       | (Branch isolation)     |       | (Sec, Arch, UX checks)  |
++-----------------------+       +-------------------------+       +------------------------+       +-------------------------+
+            |                               |                                |                                |
+            v                               v                                v                                v
++-------------------------------------------------------------------------------------------------------------------------+
+|                                    PHASE 8: CONTINUITY & CLOSED-LOOP EXECUTION                                          |
+|                         PROGRESS_LOG.json • setup_mavim.sh • MAVIM_HANDOVER_PROTOCOL.md                                 |
++-------------------------------------------------------------------------------------------------------------------------+
+```
+
+## Estructura del Repositorio (Docs)
 
 ## Fase 2: MAVIM Core SOPs (Standard Operating Procedures)
 
