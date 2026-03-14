@@ -31,3 +31,9 @@ El archivo debe mantener estrictamente este esquema:
 1. Si el `project_status` es `BLOCKED`, el agente debe leer la propiedad `blockers` y notificar inmediatamente al Orquestador o al Usuario para pedir intervención.
 2. Si el estado es `IN_PROGRESS`, el agente lee `pending_subtasks` y escoge la primera tarea disponible para ejecutar.
 3. Si el estado es `FINISHED`, el agente finaliza su proceso o notifica al usuario que el proyecto está listo para `Release`.
+
+## Poda de Contexto (Context Pruning / Amnesia Control)
+Los agentes de IA sufren de degradación cognitiva cuando la ventana de contexto se alarga demasiado y se saturan de tokens irrelevantes debatiendo soluciones.
+
+- **Regla de Poda:** Cuando el contexto de la conversación o sesión exceda o comience a volverse repetitivo, el agente en curso **DEBE** detener su accionar técnico.
+- **Ejecución:** El agente tomará todos los descubrimientos valiosos recientes y actualizará el `PROGRESS_LOG.json` (o un `KNOWLEDGE_LOG.md` temporal). Luego, instruirá explícitamente el cierre de su propia sesión de terminal o chat, para que un ciclo recursivo (ej. el Orquestador o el loop) levante un **nuevo agente fresco** con el contexto podado, leyendo únicamente el registro condensado.

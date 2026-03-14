@@ -15,12 +15,14 @@ El núcleo de MAVIM está cimentado en 4 fases críticas de ejecución de la tar
 3. **[Fase de Síntesis Paralela](core/SOP_03_SYNTHESIS.md):** Dicta cómo iterar constructivamente sin colisionar con otros agentes usando Git Branches.
 4. **[Fase de Evaluación (The Gatekeeper)](core/SOP_04_EVALUATION.md):** Controles obligatorios de calidad, UX, Seguridad y consistencia lógica pre-despliegue.
 5. **[Fase de Resiliencia (Circuit Breakers)](core/SOP_05_RESILIENCE.md):** Políticas obligatorias de reintentos (Exponential Backoff) y Cortacircuitos ante APIs LLM caídas.
-6. **[Fase de Continuidad (Memoria Persistente)](core/SOP_06_CONTINUITY.md):** Reglas para mantener una "Caja Negra" mediante un `PROGRESS_LOG.json` inmutable.
+6. **[Fase de Continuidad (Memoria Persistente)](core/SOP_06_CONTINUITY.md):** Reglas para mantener una "Caja Negra" mediante un `PROGRESS_LOG.json` inmutable y protocolos de **Poda de Contexto**.
 
 ## Fase 3: The Intelligence Patterns (Blueprints)
 
 Modelos de referencia técnicos base ('Bloques LEGO') listos para implementar arquitectura de alta disponibilidad.
 
+0. **[Design System (Shadcn/UI)](patterns/00_DESIGN_SYSTEM_SHADCN.md):** Reglas obligatorias de Tailwind CSS, paleta de colores, Dark Mode y Skeletons para UIs Premium out-of-the-box.
+0. **[Deployment & Infra (Docker/Vercel)](patterns/00_DEPLOYMENT_DOCKER_VERCEL.md):** Exigencias de empaquetado Docker (backends), Edge (frontends) y CI/CD continuo `deploy.yml`.
 1. **[Plataforma E-Commerce](patterns/01_ECOMMERCE.md):** Flujo transaccional, separando Catálogo, Carrito, Pagos e Inventario.
 2. **[Marketplace Avanzado](patterns/02_MARKETPLACE_ADVANCED.md):** Ledger de doble entrada inmutable, Catálogo Polimórfico (JSONB) y Escrow.
 3. **[SaaS Multi-Tenant B2B](patterns/04_SAAS_MULTITENANT.md):** Aislamiento de capas (Tenants), Feature Gating y Suscripciones.
