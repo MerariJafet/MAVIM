@@ -20,6 +20,17 @@ Todas las entidades **DEBEN** utilizar `UUID v4` como identificador primario.
 - **ERP:** `WorkOrder (id: UUID, requirements: JSON, status: String)`
 - **Finance:** `Invoice (id: UUID, customer_id: UUID, amount: Decimal, due_date: Date)`
 
+## Detalles Críticos de Implementación (Senior Level)
+
+### 1. Logística y On-Demand (Mapas y Rutas)
+Si el ERP integra despachos físicos, logística, tracking de vehículos o "Surge Pricing" estilo Uber:
+- **Indexación Espacial:** **No** utilices simples radios geográficos y queries de distancia geo-espacial pesadas. Utiliza el sistema **H3 (Hexagonal Hierarchical Spatial Indexing de Uber)**.
+- Agrupa a los agentes y órdenes en polígonos hexagonales para pre-calcular precios dinámicos y densidades de demanda de forma ultra-rápida.
+
+### 2. Relaciones Polimórficas Estructuradas
+- Un documento contable o un ticket puede estar asociado a N tipos de entidades (`Order`, `Lead`, `Employee`).
+- En bases de datos relacionales, prefiere tablas asociativas específicas antes que usar un modelo puramente polimórfico (`entity_id`, `entity_type`) ciego que rompe la integridad referencial de las llaves foráneas. Si el volumen no es crítico, encapsula referenciales en columnas JSONB tipadas.
+
 ## Cuidados Críticos (Trampas a Evitar)
 
 > [!CAUTION]

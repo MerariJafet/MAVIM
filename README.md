@@ -31,3 +31,12 @@ El "Cerebro" de la metodología. Instrucciones y metaprompts que cada agente MAV
 1. **[MAVIM-Architect (The Visionary)](roles/ARCHITECT.md):** Diseña los bloques LEGO y la estructura de datos basados en Monolitos Modulares.
 2. **[MAVIM-Developer (The Builder)](roles/DEVELOPER.md):** Construye la lógica funcional estrictamente dentro de las fronteras de los módulos asignados.
 3. **[MAVIM-Critic (The Gatekeeper)](roles/CRITIC.md):** Evalúa heurísticas UX, prevención de inyección AI, revisión de integridad de fronteras ("cross-imports") y cumplimiento de requerimientos lógicos.
+
+## Fase 5: Deep Knowledge Injection (El 100% Real)
+
+Para garantizar arquitecturas y código fuente de "Nivel Senior", los agentes utilizan plantillas avanzadas de validación y conocimiento profundo. Los 4 patrones arquitectónicos de la Fase 3 incluyen secciones completas con *Detalles Críticos de Implementación* (Ledgers, H3, Tenant Isolation, Fan-out, Cursor Pagination).
+
+Además, se cuenta con material de auto-evaluación:
+
+1. **[MAVIM Meta-Prompts](prompts/META_PROMPTS.md):** Contiene plantillas "Chain-of-Thought" (`VIBE_TO_ARCH`, `CODE_REVIEW`) para inicializar el contexto del agente MAVIM-Architect y MAVIM-Critic respectivamente.
+2. **[Technical Evaluation Checklists](evals/CHECKLISTS.md):** La lista de validación estricta de The Gatekeeper. Cubriendo "Security Check (Zero Trust)", "Senior Architecture Check", y "UX Heuristics". Un PR no se aprueba si no pasa el 100% de los puntos de control.

@@ -20,6 +20,16 @@ Todas las entidades **DEBEN** utilizar `UUID v4` como identificador primario.
 - **RAG Engine:** `DocumentChunk (id: UUID, source_id: UUID, embedding_vector: Array)`
 - **Guardrails:** `AuditLog (id: UUID, session_id: UUID, flag_type: String, blocked: Boolean)`
 
+## Detalles Críticos de Implementación (Senior Level)
+
+### 1. Permisos Basados en Relaciones (Google Zanzibar)
+Cuando integres RAG sobre millones de documentos empresariales, el LLM no puede acceder a información prohibida para ese usuario/empleado.
+- La recuperación vectorial DEBE cruzar un sistema de autorización estilo **Google Zanzibar** (Relationship-Based Access Control, ReBAC) para filtrar el contexto recuperado *antes* de enviarlo al modelo base.
+
+### 2. Gestión Estratégica de Context Windows
+- Las Ventanas de Contexto (Context Windows) son costosas. NUNCA cargues el historial entero del chat sin pensar.
+- Implementa **Summarization Rings**: Conserva los últimos 5 mensajes intactos y pasa el historial antiguo por una rutina secundaria más barata que extraiga y compacte los hechos (Entity/Fact Extraction) en un solo párrafo inyectable en el System Prompt.
+
 ## Cuidados Críticos (Trampas a Evitar)
 
 > [!CAUTION]

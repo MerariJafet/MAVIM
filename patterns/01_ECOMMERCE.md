@@ -20,6 +20,19 @@ Todas las entidades **DEBEN** utilizar `UUID v4` como identificador primario.
 - **Checkout:** `Order (id: UUID, customer_id: UUID, total_amount: Decimal, status: String)`
 - **Inventory:** `StockItem (id: UUID, product_id: UUID, quantity_available: Int)`
 
+## Detalles Críticos de Implementación (Senior Level)
+
+### 1. Sistema Financiero Incorruptible (Doble-Entrada)
+Todo sistema que maneje balances de usuarios, pagos o escrow en un Marketplace **NUNCA** debe usar una simple columna `balance: float` que se actualiza. Debe usarse un **Ledger de Doble Entrada**.
+- **Regla:** Cada transacción financiera genera al menos dos líneas inmutables (`Debit` y `Credit`) que sumadas siempre deben dar `0`.
+- **Tipo de Dato:** Manejar todo el dinero utilizando **ENTEROS (Integers/BigInts) que representen las fracciones más pequeñas (ej: centavos)**. NUNCA usar `float` o `double` por los errores de redondeo en coma flotante.
+
+### 2. Flujo de Escrow (Depósito en Garantía)
+En marketplaces C2C/B2C, el comprador no le paga directamente al vendedor. 
+1. `UserA` paga -> Fondos van a cuenta `Escrow_Marketplace`.
+2. Se confirma recepción del servicio/producto.
+3. Se liberan fondos -> De `Escrow_Marketplace` a `UserB` (menos comisión de plataforma).
+
 ## Cuidados Críticos (Trampas a Evitar)
 
 > [!CAUTION]
