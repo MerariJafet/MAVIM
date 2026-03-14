@@ -15,6 +15,7 @@ El núcleo de MAVIM está cimentado en 4 fases críticas de ejecución de la tar
 3. **[Fase de Síntesis Paralela](core/SOP_03_SYNTHESIS.md):** Dicta cómo iterar constructivamente sin colisionar con otros agentes usando Git Branches.
 4. **[Fase de Evaluación (The Gatekeeper)](core/SOP_04_EVALUATION.md):** Controles obligatorios de calidad, UX, Seguridad y consistencia lógica pre-despliegue.
 5. **[Fase de Resiliencia (Circuit Breakers)](core/SOP_05_RESILIENCE.md):** Políticas obligatorias de reintentos (Exponential Backoff) y Cortacircuitos ante APIs LLM caídas.
+6. **[Fase de Continuidad (Memoria Persistente)](core/SOP_06_CONTINUITY.md):** Reglas para mantener una "Caja Negra" mediante un `PROGRESS_LOG.json` inmutable.
 
 ## Fase 3: The Intelligence Patterns (Blueprints)
 
@@ -45,3 +46,8 @@ Además, se cuenta con material de auto-evaluación:
 
 1. **[MAVIM Meta-Prompts](prompts/META_PROMPTS.md):** Contiene plantillas "Chain-of-Thought" (`VIBE_TO_ARCH`, `CODE_REVIEW`) para inicializar el contexto del agente MAVIM-Architect y MAVIM-Critic respectivamente.
 2. **[Technical Evaluation Checklists](evals/CHECKLISTS.md):** La lista de validación estricta de The Gatekeeper. Cubriendo "Security Check (Zero Trust)", "Senior Architecture Check", y "UX Heuristics". Un PR no se aprueba si no pasa el 100% de los puntos de control.
+
+## Fase 8: Closed-Loop Execution (Motores Auto-Sostenibles)
+Para que MAVIM pase de ser un solo "Manual" a una plataforma de despliegue ininterrumpido a lo largo del tiempo, incorpora herramientas de continuidad para agentes de IA que les impiden entrar en amnesia:
+1. **[MAVIM Handover Protocol](core/MAVIM_HANDOVER_PROTOCOL.md):** Mecanismo estandarizado para pasarse la estafeta entre Architect -> Developer -> Critic usando un sistema de tickets físicos y `PROGRESS_LOG.json`.
+2. **[Secret Injector Tool (`setup_mavim.sh`)](setup_mavim.sh):** Script interactivo para el humano (o entorno CI/CD) destinado a la generación super segura de `.env`, prohibiendo por completo la lectura o listado a los agentes de programación.
