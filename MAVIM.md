@@ -1,5 +1,5 @@
 # MAVIM — Master Contract for AI Agents
-> **Multi-Agent VIbe coding Methodology** — La fuente única de verdad.
+> **Multi-Agent VIbe coding Methodology v3.0** — La fuente única de verdad.
 > Lee este archivo completamente antes de tomar cualquier acción en este repositorio.
 
 ---
@@ -14,6 +14,26 @@ Type:     Documentation + tooling framework
 Language: Markdown, Python, Bash
 Audience: AI agents (any model or IDE) + human engineers
 Repo:     github.com/MerariJafet/MAVIM
+```
+
+---
+
+## Flujo de Activación
+
+```mermaid
+flowchart LR
+    A([🤖 Agente entra]) --> B[Leer MAVIM.md]
+    B --> C[cat COGNITIVE_BRIDGE.json]
+    C --> D[bash scripts/mavim_scan.sh]
+    D --> E{Status?}
+    E -- GREEN --> F([✅ Operar])
+    E -- YELLOW --> G[Resolver warnings]
+    G --> F
+    E -- RED --> H[Comunicar al usuario]
+
+    style A fill:#6d28d9,color:#fff
+    style F fill:#059669,color:#fff
+    style H fill:#dc2626,color:#fff
 ```
 
 ---

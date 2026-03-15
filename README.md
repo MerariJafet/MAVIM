@@ -1,15 +1,16 @@
 # MAVIM — Multi-Agent VIbe coding Methodology
 
-[![Version](https://img.shields.io/badge/MAVIM-v2.0-blueviolet?style=for-the-badge)](https://github.com/MerariJafet/MAVIM)
+[![Version](https://img.shields.io/badge/MAVIM-v3.0-blueviolet?style=for-the-badge)](https://github.com/MerariJafet/MAVIM)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge)](https://opensource.org/licenses/MIT)
-[![Compatible](https://img.shields.io/badge/Claude%20%7C%20GPT--4o%20%7C%20Gemini-Compatible-blue?style=for-the-badge)](https://github.com/MerariJafet/MAVIM)
+[![Compatible](https://img.shields.io/badge/Any%20AI%20Agent-Compatible-blue?style=for-the-badge)](https://github.com/MerariJafet/MAVIM)
 [![Self-Improving](https://img.shields.io/badge/Self--Improving-Active-success?style=for-the-badge)](https://github.com/MerariJafet/MAVIM)
 [![Grade](https://img.shields.io/badge/Grade-Enterprise-critical?style=for-the-badge)](https://github.com/MerariJafet/MAVIM)
 [![SOPs](https://img.shields.io/badge/SOPs-12%20Protocolos-orange?style=for-the-badge)](https://github.com/MerariJafet/MAVIM)
+[![Setup](https://img.shields.io/badge/Setup-1%20comando-brightgreen?style=for-the-badge)](https://github.com/MerariJafet/MAVIM/blob/main/setup.sh)
 
 > **MAVIM es la metodología definitiva para escalar el Vibe Coding a nivel empresarial.**
 > Elimina la deuda técnica desde la raíz. Garantiza robustez mediante SOPs ejecutables.
-> Diseñada para agentes IA. Blindada con 18 gates en Chromium real. Probada en producción.
+> Diseñada para cualquier agente IA. Blindada con 18 gates en Chromium real. Probada en producción.
 
 ---
 
@@ -29,10 +30,72 @@ Los equipos que adoptan Vibe Coding sin metodología chocan con tres muros prede
 
 ## 🚀 Quick Start: Activación Universal MAVIM
 
-> Copia y pega esto en cualquier agente, en cualquier máquina, para activar MAVIM de inmediato:
+**Opción A — Un comando (recomendado):**
 
 ```bash
-git clone https://github.com/MerariJafet/MAVIM 2>/dev/null || true && cd MAVIM && actúa como MAVIM-ORCHESTRATOR, lee MAVIM.md y ejecuta los protocolos para [TU_TAREA]
+bash <(curl -s https://raw.githubusercontent.com/MerariJafet/MAVIM/main/setup.sh)
+```
+
+**Opción B — Con autodescubrimiento para el agente:**
+
+```
+Actúa como MAVIM-ORCHESTRATOR.
+Verifica si la carpeta MAVIM existe localmente; si no, clónala desde
+https://github.com/MerariJafet/MAVIM — luego lee MAVIM.md y ejecuta
+los protocolos para [TU_TAREA].
+```
+
+**Opción C — Línea de activación directa:**
+
+```bash
+git clone https://github.com/MerariJafet/MAVIM 2>/dev/null || true; cd MAVIM && cat MAVIM.md
+```
+
+---
+
+## Flujo de los 12 SOPs
+
+```mermaid
+flowchart TD
+    A([🔄 SESIÓN NUEVA]) --> B
+
+    B["⚙️ SOP_09\nENVIRONMENT_AWARENESS\nbash scripts/mavim_scan.sh\n→ ENVIRONMENT_SNAPSHOT.json"]
+    B --> C
+
+    C["🧠 SOP_10\nCOGNITIVE_BRIDGE\ncat COGNITIVE_BRIDGE.json\n→ Lee estado sesión anterior"]
+    C --> D{¿Proyecto nuevo?}
+
+    D -- Sí --> E
+    D -- No --> I
+
+    E["📋 SOP_01\nINTENTION\nVibe → INTENT_MANIFEST\n(problema, actores, DoD)"]
+    E --> F["🏗️ SOP_02\nARCHITECTURE\nLEGO Map + UUIDs + Ledger"]
+    F --> G["⚡ SOP_03\nSYNTHESIS\nParallel Dev + Git Branches"]
+    G --> H["🔍 SOP_04\nEVALUATION\nSecurity + UX + Architecture"]
+    H --> J["🛡️ SOP_05\nRESILIENCE\nCircuit Breakers + Backoff"]
+    J --> K["📊 SOP_06\nCONTINUITY\nPROGRESS_LOG.json"]
+
+    I["🔬 SOP_07\nREFACTORING\nIMPACT_MAP → cirugía quirúrgica\ncero cambios fuera del alcance"]
+    K --> I
+
+    I --> L["🧪 SOP_08\nAUTOMATED_TESTING\n18 Playwright gates en Chromium\n→ mavim-trace.json"]
+
+    L --> M{¿18/18 passing?}
+    M -- No --> N["🔁 Fix quirúrgico\n(SOP_07 loop)"]
+    N --> L
+    M -- Sí --> O
+
+    O["🏥 SOP_11\nHEALTH_CHECK\nDashboard GREEN/YELLOW/RED\nCODE + TESTS + API + UX"]
+    O --> P["⚡ SOP_12\nRESOURCE_OPTIMIZATION\nParallel tools + context pruning"]
+    P --> Q["✍️ Escribir COGNITIVE_BRIDGE\npython3 scripts/write_bridge.py"]
+    Q --> R([✅ SESIÓN CERRADA\ngit push])
+
+    style A fill:#6d28d9,color:#fff
+    style R fill:#059669,color:#fff
+    style M fill:#f59e0b,color:#000
+    style N fill:#dc2626,color:#fff
+    style I fill:#1d4ed8,color:#fff
+    style L fill:#1d4ed8,color:#fff
 ```
 
 ---
@@ -91,19 +154,21 @@ Compatible con Claude, GPT-4o, Gemini, y agentes locales.
 
 ### 4. Auto-Diagnóstico del Sistema
 
-```
-Frontend error → ErrorBoundary → POST /api/diagnostics/frontend-error
-                                          ↓
-                              correlation_id vinculado a backend logs
-                                          ↓
-                         Agente consulta GET /api/diagnostics/errors
-                                          ↓
-                              Repara sin intervención humana
-```
+```mermaid
+sequenceDiagram
+    participant FE as Frontend (React)
+    participant EB as ErrorBoundary
+    participant API as Backend (FastAPI)
+    participant AG as AI Agent
 
-El sistema se reporta a sí mismo. Cada error de React capturado por el `ErrorBoundary` se
-envía automáticamente al backend con un `correlation_id` UUID que vincula el error del frontend
-con los logs estructurados del backend. El agente tiene visibilidad completa desde un solo endpoint.
+    FE->>EB: Runtime error capturado
+    EB->>API: POST /api/diagnostics/frontend-error<br/>{error, correlation_id: UUID}
+    API->>API: Vincula con backend logs<br/>via X-Correlation-Id header
+    AG->>API: GET /api/diagnostics/errors
+    API->>AG: Error + contexto completo
+    AG->>FE: Fix quirúrgico aplicado
+    Note over AG,FE: Sin intervención humana
+```
 
 ---
 
@@ -121,46 +186,6 @@ Antes de escribir una línea de código, el agente sabe exactamente:
 | Puertos en uso | Sin colisiones en runtime |
 | Variables de entorno faltantes | Sin errores misteriosos en deploy |
 | Archivos sin commitear | Sin sorpresas al hacer merge |
-
----
-
-## Arquitectura de la Metodología
-
-```
-MAVIM v2.0 — Jerarquía de SOPs
-═══════════════════════════════════════════════════════════
-
-  SESIÓN NUEVA
-      │
-      ▼
-  SOP_09 ENVIRONMENT_AWARENESS ──── bash scripts/mavim_scan.sh
-      │                              → ENVIRONMENT_SNAPSHOT.json
-      ▼
-  SOP_10 COGNITIVE_BRIDGE ────────── python3 scripts/write_bridge.py
-      │                              → COGNITIVE_BRIDGE.json
-      │
-      ├─── SOP_01 INTENTION ─────────── Vibe → INTENT_MANIFEST
-      ├─── SOP_02 ARCHITECTURE ──────── LEGO Map + UUIDs + Ledger
-      ├─── SOP_03 SYNTHESIS ─────────── Parallel Dev + Git Branches
-      ├─── SOP_04 EVALUATION ────────── Security + UX + Architecture
-      ├─── SOP_05 RESILIENCE ────────── Circuit Breakers + Backoff
-      └─── SOP_06 CONTINUITY ────────── PROGRESS_LOG.json
-      │
-      ▼
-  SOP_07 REFACTORING ──────────────── IMPACT_MAP → cirugía quirúrgica
-      │
-      ▼
-  SOP_08 AUTOMATED_TESTING ───────── 18 Playwright gates en Chromium
-      │                              → mavim-trace.json + correlation_id
-      ▼
-  SOP_11 HEALTH_CHECK ────────────── Dashboard visual GREEN/YELLOW/RED
-      │                              → CODE + TESTS + API + UX
-      ▼
-  SOP_12 RESOURCE_OPTIMIZATION ───── Parallel tools + context pruning
-      │
-      ▼
-  SESIÓN CERRADA → Bridge escrito → push → listo para el próximo agente
-```
 
 ---
 
@@ -189,7 +214,7 @@ Todo proyecto con frontend React + Shadcn debe pasar estos gates antes de cualqu
 
 ---
 
-## Índice de SOPs (v2.0)
+## Índice de SOPs (v3.0)
 
 | SOP | Nombre | Cuándo activar | Entregable |
 |-----|--------|---------------|-----------|
@@ -219,19 +244,36 @@ Todo proyecto con frontend React + Shadcn debe pasar estos gates antes de cualqu
 
 ---
 
-## El Proyecto Piloto: It's Me
+## 📸 Showcase: It's Me
 
 MAVIM v2.0 fue construido y validado durante la evolución de **It's Me** — SaaS clínico
 multi-tenant con React + FastAPI + PostgreSQL.
 
-| Métrica | Resultado |
-|---------|-----------|
-| Páginas migradas a Shadcn + CSS vars | 18 |
-| Gates Playwright operativos | 18/18 passing |
-| Bugs detectados por auto-mejora (sin intervención humana) | 1 crítico |
-| Tiempo de detección + fix automático | < 2 minutos |
-| Cobertura de dark mode en componentes visibles | 100% |
-| Trazabilidad UUID frontend ↔ backend | 100% de errores |
+### Galería (Screenshots por añadir)
+
+| Antes | Después |
+|-------|---------|
+| ![Dark mode roto](showcase/itsme-phase14-16/assets/before-dark-mode.png) | ![Dark mode corregido](showcase/itsme-phase14-16/assets/after-dark-mode.png) |
+| *Dark mode: texto negro sobre fondo oscuro* | *Dark mode: CSS tokens correctos* |
+| ![Gate 10 fallando](showcase/itsme-phase14-16/assets/gate10-failure.png) | ![18/18 green](showcase/itsme-phase14-16/assets/playwright-18-18-green.png) |
+| *Gate 10: bg-slate-100 detectado* | *18/18 gates en verde* |
+
+> Añade tus capturas en `showcase/itsme-phase14-16/assets/` con los nombres indicados.
+
+### Métricas
+
+| Métrica | Antes (Fase 14) | Después (Fase 16) |
+|---------|----------------|------------------|
+| Archivos con colores hardcodeados | 47 | **0** |
+| Tests automatizados | 0 | **18 Playwright gates** |
+| Cobertura dark mode | ~20% | **100%** |
+| Tiempo detección bug crítico | Manual (días/nunca) | **< 2 minutos** |
+| Visibilidad errores frontend | 0% | **100% (UUID trazabilidad)** |
+| Memoria entre sesiones IA | 0% | **100% (Cognitive Bridge)** |
+
+Ver [Caso de Estudio completo →](showcase/itsme-phase14-16/CASE_STUDY.md)
+Ver [Reporte Before & After →](showcase/itsme-phase14-16/BEFORE_AFTER.md)
+Ver [Resultados Playwright →](showcase/itsme-phase14-16/PLAYWRIGHT_RESULTS.md)
 
 ---
 
@@ -274,6 +316,6 @@ MIT — Úsalo, fórkalo, mejóralo. Si MAVIM te ayuda a construir algo, compart
 
 ---
 
-*MAVIM v2.0 — Multi-Agent VIbe coding Methodology.*
+*MAVIM v3.0 — Multi-Agent VIbe coding Methodology.*
 *Forjado en producción. Validado con 18 gates en Chromium real.*
 *Proyecto piloto: [It's Me](https://github.com/MerariJafet/itsme) — SaaS clínico multi-tenant.*
