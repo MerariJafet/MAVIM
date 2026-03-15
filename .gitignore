@@ -1,0 +1,4 @@
+devrel/.venv/
+devrel/data/
+devrel/__pycache__/
+devrel/**/__pycache__/
