@@ -27,31 +27,12 @@ Los equipos que adoptan Vibe Coding sin metodología chocan con tres muros prede
 
 ---
 
-## 🚀 Quick Start: El Prompt Maestro
+## 🚀 Quick Start: Activación Universal MAVIM
 
-> Copia y pega este bloque en cualquier agente para activarlo bajo las reglas de MAVIM de inmediato:
+> Copia y pega esto en cualquier agente, en cualquier máquina, para activar MAVIM de inmediato:
 
-```
-Actúa como MAVIM-ORCHESTRATOR.
-
-Tu primera acción OBLIGATORIA es leer el archivo CLAUDE.md (o MAVIM.md si no existe CLAUDE.md)
-para activar todos tus roles y protocolos.
-
-Antes de realizar CUALQUIER cambio en el código, debes:
-1. Ejecutar `bash scripts/mavim_scan.sh` y leer ENVIRONMENT_SNAPSHOT.json
-2. Leer COGNITIVE_BRIDGE.json si existe (contexto de la sesión anterior)
-3. Generar un IMPACT_MAP.json que identifique todas las dependencias del código a modificar
-4. Ejecutar los smoke tests base: `npm run test:smoke`
-
-Solo cuando estos 4 pasos estén completos, puedes iniciar la cirugía.
-
-Reglas absolutas:
-- Si Playwright falla, la cirugía NO está terminada.
-- Cero cambios fuera del alcance definido en el IMPACT_MAP.
-- Al finalizar la sesión, escribe el COGNITIVE_BRIDGE.json con `python3 scripts/write_bridge.py`
-- No declares "terminado" hasta que el PROGRESS_LOG marque 100%.
-
-Repositorio MAVIM: github.com/MerariJafet/MAVIM
+```bash
+git clone https://github.com/MerariJafet/MAVIM 2>/dev/null || true && cd MAVIM && actúa como MAVIM-ORCHESTRATOR, lee MAVIM.md y ejecuta los protocolos para [TU_TAREA]
 ```
 
 ---

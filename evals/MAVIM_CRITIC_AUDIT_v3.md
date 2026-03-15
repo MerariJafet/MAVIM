@@ -4,7 +4,7 @@
 **Versión del reporte:** 1.0.0
 **Fecha:** 2026-03-14
 **Auditor:** MAVIM-CRITIC (modo Auditoría Industrial)
-**Alcance:** SOPs 01–12, CLAUDE.md, MAVIM.md, README.md, roles/, patterns/ (estructura)
+**Alcance:** SOPs 01–12, MAVIM.md (fuente única de verdad), CLAUDE.md (stub), README.md, roles/, patterns/ (estructura)
 **Archivos revisados:** 18 documentos core + 5 roles
 
 ---
@@ -16,7 +16,7 @@
 | Contradicciones lógicas | 3 | 2 | 1 |
 | Gaps de ejecución (SaaS from scratch) | 3 | 3 | 1 |
 | Inconsistencias de formato | 1 | 3 | 2 |
-| Calidad CLAUDE.md | 1 | 1 | 1 |
+| Calidad MAVIM.md  | 1 | 1 | 1 |
 | Potencial viral README | 0 | 2 | 2 |
 | **TOTAL** | **8** | **11** | **7** |
 
@@ -94,13 +94,13 @@ El SOP_02 debe cambiar su diagrama. La frase `→ INTENT_MANIFEST con arquitectu
 ### C-04 🟡 ALTO — GSD Planning Gate Definido Dos Veces con Outputs Diferentes
 
 **Evidencia:**
-- `CLAUDE.md` sección "GSD Planning Gate": 5 preguntas → _"document the answers in the SOP's frontmatter"_
+- `MAVIM.md` sección "GSD Planning Gate": 5 preguntas → _"document the answers in the SOP's frontmatter"_
 - `SOP_02` sección 2: mismas 5 preguntas con ligeras diferencias de wording → _"`ARCHITECTURE_CONTRACT.md` con las 5 respuestas"_
 
-**El problema:** El mismo framework tiene dos outputs distintos y dos contextos de aplicación mezclados. CLAUDE.md lo usa para crear nuevos SOPs; SOP_02 lo usa para nuevos proyectos. Pero el agente que lee ambos ve la misma herramienta con instrucciones contradictorias.
+**El problema:** El mismo framework tiene dos outputs distintos y dos contextos de aplicación mezclados. MAVIM.md lo usa para crear nuevos SOPs; SOP_02 lo usa para nuevos proyectos. Pero el agente que lee ambos ve la misma herramienta con instrucciones contradictorias.
 
 **Fix v3.0:** Diferenciar explícitamente en ambos archivos:
-- `CLAUDE.md`: "GSD Gate para nuevos SOPs (output: frontmatter del SOP)"
+- `MAVIM.md`: "GSD Gate para nuevos SOPs (output: frontmatter del SOP)"
 - `SOP_02`: "GSD Gate para nuevos proyectos (output: ARCHITECTURE_CONTRACT.md)"
 
 ---
@@ -228,7 +228,7 @@ echo "SMOKE_TEST: PASS"
 - No tiene implementación de referencia
 - Un agente que lee esto no sabe si debe crear un archivo, una clase, un servicio separado, o instalar una librería
 
-SOP_05 también carece de checklist de cumplimiento (requerido por CLAUDE.md).
+SOP_05 también carece de checklist de cumplimiento (requerido por MAVIM.md).
 
 **Fix v3.0:** Definir AI Gateway como patrón en `patterns/` (puede ser un middleware de FastAPI o una clase Python) y añadir checklist a SOP_05.
 
@@ -246,7 +246,7 @@ SOP_05 también carece de checklist de cumplimiento (requerido por CLAUDE.md).
 
 ### F-01 🔴 CRÍTICO — SOPs 01-06 carecen de frontmatter obligatorio
 
-**CLAUDE.md requiere:**
+**MAVIM.md requiere:**
 ```markdown
 **Versión:** X.X.X
 **Fecha:** YYYY-MM-DD
@@ -308,9 +308,9 @@ SOP_07 termina en sección 4 (Fase de Re-conexión). No tiene `## Checklist de C
 
 ---
 
-## SECCIÓN D — CALIDAD DEL CLAUDE.md
+## SECCIÓN D — CALIDAD DEL MAVIM.md
 
-**Veredicto general:** CLAUDE.md es el mejor archivo del repositorio en términos de claridad estructural y comprensión de propósito. Sin embargo tiene 3 issues técnicos.
+**Veredicto general:** MAVIM.md es el mejor archivo del repositorio en términos de claridad estructural y comprensión de propósito. Sin embargo tiene 3 issues técnicos.
 
 ### D-01 🔴 CRÍTICO — Comando roto en Activation Sequence
 
@@ -385,9 +385,9 @@ Un Quick Start de 5 pasos aumenta conversión de "interesado" a "usuario".
 ```markdown
 ## Quick Start (5 pasos)
 1. git clone https://github.com/MerariJafet/MAVIM && cd MAVIM
-2. cp CLAUDE.md tu-proyecto/CLAUDE.md  # Activa MAVIM para cualquier agente IA
+2. cp MAVIM.md tu-proyecto/MAVIM.md  # Activa MAVIM para cualquier agente IA
 3. Abre tu proyecto con Claude Code / Cursor / Codex
-4. El agente lee CLAUDE.md y activa SOP_09 automáticamente
+4. El agente lee MAVIM.md y activa SOP_09 automáticamente
 5. Pide: "Actúa como MAVIM-Orchestrator y construye [tu proyecto]"
 ```
 
@@ -422,7 +422,7 @@ El README no tiene sección de "Contributing" ni "Star este repo si te fue útil
 | # | Propuesta | Esfuerzo | Impacto | Tipo |
 |---|-----------|----------|---------|------|
 | 1 | **Fix C-01**: Corregir diagrama de flujo en SOP_02 (SOP_01 antes de SOP_02) | Bajo | Crítico | Bug |
-| 2 | **Fix D-01**: Corregir comando roto en CLAUDE.md Activation Sequence | Bajo | Crítico | Bug |
+| 2 | **Fix D-01**: Corregir comando roto en MAVIM.md Activation Sequence | Bajo | Crítico | Bug |
 | 3 | **Fix C-06**: Añadir SOP_11/12 al índice de MAVIM.md | Bajo | Medio | Gap |
 | 4 | **Fix C-03**: Actualizar MAVIM_HANDOVER_PROTOCOL.md con COGNITIVE_BRIDGE.json | Bajo | Alto | Contradicción |
 | 5 | **Fix D-02**: Actualizar MAVIM.md punto 2 con ambos archivos de memoria | Bajo | Alto | Contradicción |
@@ -443,7 +443,7 @@ El README no tiene sección de "Contributing" ni "Star este repo si te fue útil
 
 Las siguientes 5 correcciones son bugs directos que no requieren diseño ni decisiones arquitectónicas:
 
-### Acción 1: Fix CLAUDE.md — Comando roto
+### Acción 1: Fix MAVIM.md — Comando roto
 ```bash
 # Línea actual (rota):
 bash devrel/../showcase/../ 2>/dev/null || true
@@ -473,7 +473,7 @@ Añadir al índice de SOPs:
 ### Acción 4: Fix SOP_02 — Diagrama de flujo corregido
 El orden correcto es `SOP_01 → SOP_02`, no `SOP_02 → SOP_01`.
 
-### Acción 5: Añadir a CLAUDE.md — Rol para proyecto nuevo
+### Acción 5: Añadir a MAVIM.md — Rol para proyecto nuevo
 ```markdown
 | Starting a new project from scratch | MAVIM-Orchestrator (SOP_09 → SOP_01 → SOP_02) |
 | Implementing a defined module | MAVIM-Developer |
