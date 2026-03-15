@@ -1,24 +1,58 @@
-# MAVIM — Manifiesto de Ingeniería Agnóstica
+# MAVIM — Multi-Agent VIbe coding Methodology
 
 [![Version](https://img.shields.io/badge/MAVIM-v2.0-blueviolet?style=for-the-badge)](https://github.com/MerariJafet/MAVIM)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge)](https://opensource.org/licenses/MIT)
-[![Built for Agents](https://img.shields.io/badge/Claude%20%7C%20GPT--4o%20%7C%20Gemini-Compatible-blue?style=for-the-badge)](https://github.com/MerariJafet/MAVIM)
+[![Compatible](https://img.shields.io/badge/Claude%20%7C%20GPT--4o%20%7C%20Gemini-Compatible-blue?style=for-the-badge)](https://github.com/MerariJafet/MAVIM)
 [![Self-Improving](https://img.shields.io/badge/Self--Improving-Active-success?style=for-the-badge)](https://github.com/MerariJafet/MAVIM)
+[![Grade](https://img.shields.io/badge/Grade-Enterprise-critical?style=for-the-badge)](https://github.com/MerariJafet/MAVIM)
+[![SOPs](https://img.shields.io/badge/SOPs-12%20Protocolos-orange?style=for-the-badge)](https://github.com/MerariJafet/MAVIM)
 
-> **La primera metodología de ingeniería de software que se auto-mejora con cada sesión de trabajo.**
-> Diseñada para agentes IA. Probada en producción. Blindada con tests en Chromium real.
+> **MAVIM es la metodología definitiva para escalar el Vibe Coding a nivel empresarial.**
+> Elimina la deuda técnica desde la raíz. Garantiza robustez mediante SOPs ejecutables.
+> Diseñada para agentes IA. Blindada con 18 gates en Chromium real. Probada en producción.
 
 ---
 
 ## El Problema que MAVIM Resuelve
 
-Los agentes IA rompen proyectos de software de tres formas predecibles:
+Los equipos que adoptan Vibe Coding sin metodología chocan con tres muros predecibles:
 
-1. **Amnesia de contexto** — A los 30 minutos, el agente olvida las decisiones arquitectónicas del inicio.
-2. **Cirugía ciega** — Modifica código sin entender sus dependencias, rompe el 20% del sistema para arreglar el 5%.
-3. **Validación superficial** — Declara "terminado" basándose en que el código compiló, no en que funciona en un navegador real.
+| Problema | Síntoma | Costo |
+|----------|---------|-------|
+| **Amnesia de contexto** | El agente olvida las decisiones arquitectónicas a los 30 min | Rediseño constante, deuda acumulada |
+| **Cirugía ciega** | Modifica código sin entender dependencias, rompe el 20% para arreglar el 5% | Regresiones en producción |
+| **Validación superficial** | Declara "terminado" porque el código compiló, no porque funciona en real | Bugs en deploy, credibilidad destruida |
 
-MAVIM elimina los tres con protocolos ejecutables, no teoría.
+**MAVIM elimina los tres con protocolos ejecutables, no teoría.**
+
+---
+
+## 🚀 Quick Start: El Prompt Maestro
+
+> Copia y pega este bloque en cualquier agente para activarlo bajo las reglas de MAVIM de inmediato:
+
+```
+Actúa como MAVIM-ORCHESTRATOR.
+
+Tu primera acción OBLIGATORIA es leer el archivo CLAUDE.md (o MAVIM.md si no existe CLAUDE.md)
+para activar todos tus roles y protocolos.
+
+Antes de realizar CUALQUIER cambio en el código, debes:
+1. Ejecutar `bash scripts/mavim_scan.sh` y leer ENVIRONMENT_SNAPSHOT.json
+2. Leer COGNITIVE_BRIDGE.json si existe (contexto de la sesión anterior)
+3. Generar un IMPACT_MAP.json que identifique todas las dependencias del código a modificar
+4. Ejecutar los smoke tests base: `npm run test:smoke`
+
+Solo cuando estos 4 pasos estén completos, puedes iniciar la cirugía.
+
+Reglas absolutas:
+- Si Playwright falla, la cirugía NO está terminada.
+- Cero cambios fuera del alcance definido en el IMPACT_MAP.
+- Al finalizar la sesión, escribe el COGNITIVE_BRIDGE.json con `python3 scripts/write_bridge.py`
+- No declares "terminado" hasta que el PROGRESS_LOG marque 100%.
+
+Repositorio MAVIM: github.com/MerariJafet/MAVIM
+```
 
 ---
 
@@ -30,20 +64,27 @@ MAVIM elimina los tres con protocolos ejecutables, no teoría.
 npm run test:smoke  # 18 gates en Chromium real, no jsdom
 ```
 
-El MAVIM-CRITIC no aprueba ninguna cirugía sin que Playwright valide en un navegador real que los componentes renderizan sin errores de consola, el design system en dark mode no tiene colores hardcodeados, las rutas protegidas no son accesibles sin autenticación, y los estados de carga usan Skeleton en vez de texto plano.
+El MAVIM-CRITIC no aprueba ninguna cirugía sin que Playwright valide en un navegador real:
+los componentes renderizan sin errores de consola, el design system en dark mode no tiene
+colores hardcodeados, las rutas protegidas no son accesibles sin autenticación, y los estados
+de carga usan Skeleton en vez de texto plano.
 
-**Caso real documentado (2026-03-14):** Playwright gate 10 detectó `bg-slate-100` hardcodeado en el componente `Badge`. Invisible en revisión manual, roto en dark mode. El bucle de auto-mejora lo detectó y corrigió en < 2 minutos sin intervención humana.
+> **Caso real documentado (2026-03-14):** Gate 10 detectó `bg-slate-100` hardcodeado en el
+> componente `Badge`. Invisible en revisión manual. Roto en dark mode. El bucle de auto-mejora
+> lo detectó y corrigió en < 2 minutos sin intervención humana.
 
 ---
 
 ### 2. Refactorización Quirúrgica
 
 ```
-BEFORE: Editar código sin mapa → romper dependencias → debug interminable
-AFTER:  IMPACT_MAP.json → rama aislada → smoke test base → cirugía → validación
+ANTES: Editar código sin mapa → romper dependencias → debug interminable
+DESPUÉS: IMPACT_MAP.json → rama aislada → smoke test base → cirugía → validación
 ```
 
-El SOP_07_REFACTORING define precisión quirúrgica: **cero cambios fuera del alcance definido**. Cada modificación está precedida por un mapa de impacto que identifica todas las dependencias del código a cambiar antes de tocar una sola línea.
+El SOP_07_REFACTORING define **precisión quirúrgica**: cero cambios fuera del alcance definido.
+Cada modificación está precedida por un mapa de impacto que identifica todas las dependencias
+del código a cambiar antes de tocar una sola línea.
 
 ---
 
@@ -53,7 +94,17 @@ El SOP_07_REFACTORING define precisión quirúrgica: **cero cambios fuera del al
 python3 scripts/write_bridge.py  # al finalizar sesión
 ```
 
-`COGNITIVE_BRIDGE.json` transfiere el estado completo entre instancias de IA: tareas completadas y pendientes, decisiones arquitectónicas con justificación (`ADR-001`, `ADR-002`...), peligros conocidos con sus fixes documentados, e instrucciones exactas (`first_actions`) para el agente entrante. Compatible con Claude, GPT-4o, Gemini, y agentes locales.
+`COGNITIVE_BRIDGE.json` transfiere el estado completo entre instancias de IA:
+
+| Campo | Contenido |
+|-------|-----------|
+| `completed_tasks` | Tareas terminadas con evidencia |
+| `pending_tasks` | Backlog priorizado |
+| `adr` | Decisiones arquitectónicas con justificación (`ADR-001`, `ADR-002`...) |
+| `known_hazards` | Peligros documentados con sus fixes |
+| `first_actions` | Instrucciones exactas para el agente entrante |
+
+Compatible con Claude, GPT-4o, Gemini, y agentes locales.
 
 ---
 
@@ -69,7 +120,9 @@ Frontend error → ErrorBoundary → POST /api/diagnostics/frontend-error
                               Repara sin intervención humana
 ```
 
-El sistema se reporta a sí mismo. Cada error de React capturado por el `ErrorBoundary` se envía automáticamente al backend con un `correlation_id` UUID que vincula el error del frontend con los logs estructurados del backend. El agente tiene visibilidad completa del sistema desde un solo endpoint.
+El sistema se reporta a sí mismo. Cada error de React capturado por el `ErrorBoundary` se
+envía automáticamente al backend con un `correlation_id` UUID que vincula el error del frontend
+con los logs estructurados del backend. El agente tiene visibilidad completa desde un solo endpoint.
 
 ---
 
@@ -79,7 +132,14 @@ El sistema se reporta a sí mismo. Cada error de React capturado por el `ErrorBo
 bash scripts/mavim_scan.sh  # < 60 segundos, status GREEN/YELLOW/RED
 ```
 
-Antes de escribir una línea de código, el agente sabe exactamente qué versiones del stack están instaladas, qué puertos están en uso, qué variables de entorno faltan, y cuántos archivos hay sin commitear. Sin sorpresas en runtime. Sin conflictos silenciosos.
+Antes de escribir una línea de código, el agente sabe exactamente:
+
+| Dato | Por qué importa |
+|------|----------------|
+| Versiones del stack instaladas | Sin conflictos silenciosos de dependencias |
+| Puertos en uso | Sin colisiones en runtime |
+| Variables de entorno faltantes | Sin errores misteriosos en deploy |
+| Archivos sin commitear | Sin sorpresas al hacer merge |
 
 ---
 
@@ -119,34 +179,6 @@ MAVIM v2.0 — Jerarquía de SOPs
       │
       ▼
   SESIÓN CERRADA → Bridge escrito → push → listo para el próximo agente
-```
-
----
-
-## Quick Start
-
-### Para agentes IA (Claude Code, Cursor, Codex, Windsurf)
-
-```
-Usa MAVIM desde github.com/MerariJafet/MAVIM para construir [TU_APP].
-Lee MAVIM.md para activarte. Ejecuta setup_mavim.sh, asume los roles,
-y no pares hasta que el PROGRESS_LOG esté al 100%.
-```
-
-### Para proyectos existentes (Modo Quirúrgico)
-
-```bash
-# 1. Scan del entorno
-bash scripts/mavim_scan.sh
-
-# 2. Leer el Bridge si existe
-cat COGNITIVE_BRIDGE.json
-
-# 3. Verificar estado base
-cd frontend && npm run test:smoke
-
-# 4. Health check completo
-bash scripts/health_check.sh
 ```
 
 ---
@@ -195,9 +227,21 @@ Todo proyecto con frontend React + Shadcn debe pasar estos gates antes de cualqu
 
 ---
 
+## Roles del Sistema
+
+| Rol | Responsabilidad |
+|-----|----------------|
+| [MAVIM-Orchestrator](roles/MAVIM_ORCHESTRATOR.md) | Rompe bucles, dicta política suprema, asegura iteraciones positivas |
+| [MAVIM-Architect](roles/ARCHITECT.md) | Diseña bloques LEGO, estructura de datos, monolito modular |
+| [MAVIM-Developer](roles/DEVELOPER.md) | Construye dentro de fronteras de módulos asignados |
+| [MAVIM-Critic](roles/CRITIC.md) | Evalúa UX, seguridad, integridad de fronteras, cumplimiento |
+
+---
+
 ## El Proyecto Piloto: It's Me
 
-MAVIM v2.0 fue construido y validado durante la evolución de **It's Me** — SaaS clínico multi-tenant con React + FastAPI + PostgreSQL.
+MAVIM v2.0 fue construido y validado durante la evolución de **It's Me** — SaaS clínico
+multi-tenant con React + FastAPI + PostgreSQL.
 
 | Métrica | Resultado |
 |---------|-----------|
@@ -210,22 +254,15 @@ MAVIM v2.0 fue construido y validado durante la evolución de **It's Me** — Sa
 
 ---
 
-## Roles del Sistema
-
-| Rol | Responsabilidad |
-|-----|----------------|
-| [MAVIM-Orchestrator](roles/MAVIM_ORCHESTRATOR.md) | Rompe bucles, dicta política suprema, asegura iteraciones positivas |
-| [MAVIM-Architect](roles/ARCHITECT.md) | Diseña bloques LEGO, estructura de datos, monolito modular |
-| [MAVIM-Developer](roles/DEVELOPER.md) | Construye dentro de fronteras de módulos asignados |
-| [MAVIM-Critic](roles/CRITIC.md) | Evalúa UX, seguridad, integridad de fronteras, cumplimiento |
-
----
-
 ## Filosofía
 
-MAVIM nació de una pregunta: ¿qué pasaría si los estándares de ingeniería senior — código limpio, tests reales, trazabilidad de decisiones, diseño sin deuda técnica — estuvieran codificados en protocolos que cualquier agente IA pudiera ejecutar de forma autónoma?
+MAVIM nació de una pregunta: ¿qué pasaría si los estándares de ingeniería senior — código
+limpio, tests reales, trazabilidad de decisiones, diseño sin deuda técnica — estuvieran
+codificados en protocolos que cualquier agente IA pudiera ejecutar de forma autónoma?
 
-La respuesta es esta metodología. No es un framework de código. Es un framework de **proceso**: cómo piensa, actúa, valida y transfiere conocimiento un equipo de ingeniería donde la IA es un miembro de primera clase.
+La respuesta es esta metodología. No es un framework de código. Es un framework de
+**proceso**: cómo piensa, actúa, valida y transfiere conocimiento un equipo de ingeniería
+donde la IA es un miembro de primera clase.
 
 **Tres principios absolutos:**
 
@@ -256,5 +293,6 @@ MIT — Úsalo, fórkalo, mejóralo. Si MAVIM te ayuda a construir algo, compart
 
 ---
 
-*MAVIM v2.0 — Forjado en producción. Validado con 18 gates en Chromium real.*
+*MAVIM v2.0 — Multi-Agent VIbe coding Methodology.*
+*Forjado en producción. Validado con 18 gates en Chromium real.*
 *Proyecto piloto: [It's Me](https://github.com/MerariJafet/itsme) — SaaS clínico multi-tenant.*
