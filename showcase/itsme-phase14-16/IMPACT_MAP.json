@@ -1,0 +1,128 @@
+{
+  "impact_map_id": "b7f3a1c2-9d4e-4f8b-a2c5-1e6d7f0b3a4c",
+  "generated_at": "2026-03-14T00:00:00Z",
+  "project": "It's Me — SaaS Clínico Multi-Tenant",
+  "surgery_scope": "Migración Visual Completa + E2E Testing + MAVIM 2.0",
+  "phases_covered": ["Phase 14", "Phase 15", "Phase 16"],
+
+  "diagnosis": {
+    "critical_debt": [
+      "Hardcoded Tailwind colors en 18+ páginas (bg-white, bg-slate-*, bg-gray-*, text-gray-900)",
+      "Dark mode completamente roto — todos los componentes mostraban blanco sobre blanco",
+      "Loading states con texto plano 'Cargando...' en vez de Skeleton components",
+      "Formularios con HTML nativo (<input>, <label>, <button>) sin sistema de diseño",
+      "Error boundaries sin trazabilidad — errores se perdían en console.log",
+      "0 tests automatizados — validación 100% manual",
+      "Cero visibilidad del estado del sistema para el agente IA",
+      "Cada sesión de IA comenzaba desde cero sin contexto acumulado"
+    ],
+    "affected_files": 47,
+    "affected_components": 23,
+    "debt_score": "CRITICAL"
+  },
+
+  "dependency_graph": {
+    "design_system": {
+      "file": "frontend/src/index.css",
+      "dependents": [
+        "frontend/src/pages/*.tsx (18 archivos)",
+        "frontend/src/components/ui/*.tsx (12 archivos)",
+        "frontend/src/components/forms/*.tsx (6 archivos)",
+        "frontend/src/components/shell/*.tsx"
+      ],
+      "change_type": "CSS vars — sin cambios en la API, solo reemplazar tokens"
+    },
+    "badge_component": {
+      "file": "frontend/src/components/ui/badge.tsx",
+      "dependents": [
+        "frontend/src/pages/dashboard/Patients.tsx",
+        "frontend/src/pages/dashboard/Appointments.tsx",
+        "frontend/src/pages/dashboard/AgentActivity.tsx",
+        "frontend/src/pages/Services.tsx",
+        "frontend/src/pages/Notifications.tsx"
+      ],
+      "critical": true,
+      "reason": "Variante 'muted' tenía bg-slate-100 hardcodeado — roto en dark mode",
+      "detected_by": "Playwright gate 10 — no visible en revisión manual"
+    },
+    "error_boundary": {
+      "file": "frontend/src/components/ErrorBoundary.tsx",
+      "dependents": ["frontend/src/main.tsx"],
+      "change_type": "Agregar reporte automático al backend — sin breaking changes",
+      "new_capability": "POST /api/diagnostics/frontend-error con correlation_id"
+    },
+    "backend_diagnostics": {
+      "file": "backend/app/routers/diagnostics.py",
+      "dependents": ["backend/app/main.py", "backend/app/routers/__init__.py"],
+      "change_type": "Nuevo router — sin modificar routers existentes",
+      "endpoints": [
+        "POST /api/diagnostics/frontend-error",
+        "GET /api/diagnostics/errors",
+        "GET /api/diagnostics/snapshot",
+        "GET /api/diagnostics/health"
+      ]
+    }
+  },
+
+  "surgical_operations": [
+    {
+      "id": "OP-001",
+      "name": "CSS Variable Design System",
+      "scope": "18 páginas + 12 componentes UI",
+      "method": "Replace all — Python batch scripts para archivos > 200 líneas",
+      "tokens_replaced": [
+        "bg-white → bg-[var(--surface)]",
+        "bg-slate-50/100 → bg-[var(--surface-2)]",
+        "text-gray-900/700 → text-[var(--text)] / text-[var(--muted)]",
+        "border-slate-300/200 → border-[var(--border)]",
+        "text-red-600 → text-[var(--danger)]",
+        "bg-emerald-* → bg-[var(--success,#22c55e)]/15"
+      ],
+      "risk": "LOW — reemplazo de tokens, sin lógica de negocio",
+      "validation": "Playwright gates 10, 14 — dark mode check"
+    },
+    {
+      "id": "OP-002",
+      "name": "Shadcn Form Migration",
+      "scope": "DoctorFormDialog, ServiceFormDialog, ConsultorioFormDialog, AppointmentFormDialog",
+      "method": "Rewrite quirúrgico — solo los 4 archivos identificados",
+      "components_added": ["Dialog", "Input", "Label", "Textarea", "Button"],
+      "risk": "MEDIUM — cambio de API de props de componentes",
+      "validation": "Playwright gates 12, 13 — dialog Shadcn inputs count"
+    },
+    {
+      "id": "OP-003",
+      "name": "Skeleton Loading States",
+      "scope": "Services, Consultorios, Clinics, Doctors, Notifications, ClinicSelector",
+      "method": "Replace loading conditional render",
+      "pattern": "{loading && <div>Cargando...</div>} → {loading && <Skeleton grid />}",
+      "risk": "LOW — UI only, sin lógica de datos",
+      "validation": "Playwright gates 15, 16, 18"
+    },
+    {
+      "id": "OP-004",
+      "name": "Auto-Diagnosis Backend",
+      "scope": "nuevo router + modificación ErrorBoundary",
+      "method": "Additive — cero modificaciones a código existente",
+      "risk": "MINIMAL — solo agrega endpoints nuevos",
+      "validation": "curl /api/diagnostics/health"
+    },
+    {
+      "id": "OP-005",
+      "name": "MAVIM Scripts (SOP_09, 10, 11)",
+      "scope": "scripts/ directory — 3 nuevos archivos",
+      "method": "Additive",
+      "risk": "NONE — herramientas externas al código de la app",
+      "validation": "bash scripts/mavim_scan.sh && bash scripts/health_check.sh"
+    }
+  ],
+
+  "zero_regressions_protocol": {
+    "pre_surgery_baseline": "0 Playwright tests (punto de partida)",
+    "post_surgery_result": "18/18 Playwright gates passing",
+    "typescript_errors_before": "1 (AgentActivity.tsx Badge variant)",
+    "typescript_errors_after": "0",
+    "breaking_changes": "NONE",
+    "api_contract_changes": "NONE — solo endpoints nuevos en /api/diagnostics"
+  }
+}

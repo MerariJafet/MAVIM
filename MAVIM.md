@@ -60,6 +60,12 @@ SOP_08 AUTOMATED_TESTING      ← Gate final obligatorio
 SOP_01..06                    ← Arquitectura, síntesis, evaluación, resiliencia
 ```
 
+## Casos de Éxito
+
+| Proyecto | Resultado clave |
+|----------|----------------|
+| [It's Me — Fases 14–16](showcase/itsme-phase14-16/CASE_STUDY.md) | 18/18 Playwright, bug crítico auto-detectado en < 2 min sin intervención humana |
+
 ## Índice de SOPs
 
 | SOP | Nombre | Cuándo activar |
