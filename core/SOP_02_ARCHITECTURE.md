@@ -254,14 +254,16 @@ if (saved) document.documentElement.setAttribute('data-theme', saved);
 ```
 SOP_09 (Environment Scan)
     ↓ entorno verificado
-SOP_02 (Architecture) ← ESTÁS AQUÍ
+SOP_01 (Intention)    ← INTENT_MANIFEST: problema + actores + DoD definidos
+    ↓ intención clara
+SOP_02 (Architecture) ← ESTÁS AQUÍ — requiere INTENT_MANIFEST como prerequisito
     ↓ ARCHITECTURE_CONTRACT.md + GSD Gate completado
-SOP_01 (Intention)    → INTENT_MANIFEST con arquitectura definida
-    ↓
 SOP_07 (Refactoring)  → respeta los module boundaries de SOP_02
     ↓
 SOP_08 (E2E Testing)  → valida la UI architecture (gates 02, 03, 10, 14)
 ```
+
+> **Nota:** SOP_01 es obligatorio antes de SOP_02. No es posible arquitecturar sin conocer la intención.
 
 ---
 

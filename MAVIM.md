@@ -3,10 +3,32 @@
 
 Lee esto para activarte instantáneamente:
 1. **Roles:** Architect diseña bloques LEGO. Developer escribe código modular. Critic audita con Checklists.
-2. **Memoria:** Lee y actualiza `PROGRESS_LOG.json` en cada turno.
+2. **Memoria:** Lee y actualiza según contexto:
+   - Sprint/proyecto: `PROGRESS_LOG.json` (cada milestone completado)
+   - Sesión/handoff entre IAs: `COGNITIVE_BRIDGE.json` (al iniciar y al finalizar sesión)
 3. **Secreto:** Ejecuta `setup_mavim.sh` al inicio. Prohibido filtrar el `.env`.
 4. **Arquitectura:** Monolito Modular, UUIDs, Ledger para dinero, H3 para mapas.
 5. **Refactoring Mode:** Si el usuario pide mejorar un código existente, carga el `core/SOP_07_REFACTORING.md`. Tu prioridad #1 es la integridad del sistema. No borres código sin antes mapear sus dependencias.
+
+---
+
+## Secuencia para Proyecto Nuevo (SaaS desde cero)
+
+Si el proyecto no existe aún, seguir esta secuencia en orden estricto:
+
+```
+1. SOP_09  → Escanear entorno (scripts/mavim_scan.sh)
+2. SOP_01  → Definir INTENT_MANIFEST (problema, actores, DoD)
+3. SOP_02  → Crear ARCHITECTURE_CONTRACT.md (GSD Gate + módulos + tokens UI)
+4. BUILD   → Implementar módulos (rol: MAVIM-Developer)
+5. SOP_05  → Aplicar resilience patterns en servicios externos
+6. SOP_06  → Mantener PROGRESS_LOG.json en cada milestone
+7. SOP_08  → Correr Playwright 18 gates antes de primer commit a main
+8. SOP_11  → Health Check antes de cualquier deploy
+9. SOP_10  → Escribir COGNITIVE_BRIDGE.json al cerrar sesión
+```
+
+> **Si ya existe código:** El punto de entrada no es SOP_01 — es SOP_09 → SOP_07 (Refactoring).
 
 ---
 
@@ -80,3 +102,5 @@ SOP_01..06                    ← Arquitectura, síntesis, evaluación, resilien
 | 08 | AUTOMATED_TESTING | **Después de toda cirugía** |
 | 09 | ENVIRONMENT_AWARENESS | **Al inicio de sesión** |
 | 10 | COGNITIVE_BRIDGE | **Al inicio y fin de sesión** |
+| 11 | HEALTH_CHECK | Antes de merge, después de deploy, bajo demanda |
+| 12 | RESOURCE_OPTIMIZATION | Sesiones > 30 minutos o > 50 herramientas usadas |

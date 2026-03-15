@@ -24,7 +24,7 @@ Run in this exact order before any task:
 # 2. Check Cognitive Bridge
 cat COGNITIVE_BRIDGE.json 2>/dev/null || echo "No bridge — fresh session"
 # 3. Environment scan
-bash devrel/../showcase/../ 2>/dev/null || true
+[ -f scripts/mavim_scan.sh ] && bash scripts/mavim_scan.sh 2>/dev/null || echo "No scan available — run SOP_09 manually"
 # 4. Confirm your understanding
 echo "MAVIM agent ready. Phase: [state current phase from Bridge]"
 ```
@@ -120,6 +120,8 @@ When operating in this repository:
 
 | Task | Role to assume |
 |------|---------------|
+| Starting a new project from scratch | MAVIM-Orchestrator (SOP_09 → SOP_01 → SOP_02) |
+| Implementing a defined module | MAVIM-Developer |
 | Creating a new SOP | MAVIM-Architect |
 | Reviewing/auditing a SOP | MAVIM-Critic |
 | Writing Python tooling | MAVIM-Developer |
