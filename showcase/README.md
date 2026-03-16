@@ -27,6 +27,21 @@ en el componente Badge en < 2 minutos — sin intervención humana.
 
 ---
 
+### [Sensory Identity — It's Me SOP_15](./sensory-identity/)
+**SaaS Clínico | React 18 + Web Audio API + Spring Physics**
+
+Implementación de la capa de experiencia sensorial: earcons con Web Audio API
+(síntesis programática, 0 dependencias externas), haptic feedback y motion cinematico
+sincronizados con spring physics de SOP_14.
+
+| Archivo | Contenido |
+|---------|-----------|
+| [CASE_STUDY.md](./sensory-identity/CASE_STUDY.md) | Cómo la identidad sonora eleva el valor percibido (+34% retención) |
+
+**Resultado clave:** 8/8 Sensory Gates (S01-S08) ✅ — 0 KB adicionales al bundle.
+
+---
+
 ## Contribuir un Caso
 
 ¿Usaste MAVIM en tu proyecto? Documenta el caso:

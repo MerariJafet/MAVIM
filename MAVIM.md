@@ -99,8 +99,10 @@ MAVIM/
 6. SOP_05  → Aplicar resilience patterns en servicios externos
 7. SOP_06  → Mantener PROGRESS_LOG.json en cada milestone
 8. SOP_08  → Correr Playwright 18 gates + A01-A07 (SOP_14) antes de commit a main
-9. SOP_11  → Health Check antes de cualquier deploy
-10. SOP_10 → Escribir COGNITIVE_BRIDGE.json al cerrar sesión
+9. SOP_15  → Sensory Layer: earcons (Web Audio API) + haptic + motion cinematico
+10. SENSORY CHECK → Gates S01-S08 — identidad sonora validada
+11. SOP_11 → Health Check antes de cualquier deploy
+12. SOP_10 → Escribir COGNITIVE_BRIDGE.json al cerrar sesión
 ```
 
 > **Si ya existe código:** El punto de entrada no es SOP_01 — es SOP_09 → SOP_07 (Refactoring).
@@ -159,9 +161,10 @@ SOP_09 ENVIRONMENT_AWARENESS  ← Activar primero en sesión nueva
 SOP_10 COGNITIVE_BRIDGE       ← Leer al inicio, escribir al finalizar
     ↓
 SOP_07 REFACTORING            ← Ley suprema en cirugías
-SOP_08 AUTOMATED_TESTING      ← Gate final obligatorio (18 gates + A01-A07)
+SOP_08 AUTOMATED_TESTING      ← Gate final (18 gates + A01-A07 + S01-S08)
     ↓
 SOP_14 HIGH_FIDELITY_UI_UX    ← OBLIGATORIO antes de BUILD — Art Direction
+SOP_15 SENSORY_DESIGN         ← Post-BUILD — Earcons + Motion + Haptic
     ↓
 SOP_01..06                    ← Arquitectura, síntesis, evaluación, resiliencia
 SOP_11 HEALTH_CHECK           ← Pre-merge, post-deploy
@@ -170,6 +173,18 @@ SOP_12 RESOURCE_OPTIMIZATION  ← Sesiones > 30 min
 
 > **⚠️ ANTI-AI-SLOP LAW:** Shadcn sin personalización, paletas Tailwind default, tipografías
 > system-ui, y motion ausente son violaciones explícitas de MAVIM. Ver SOP_14.
+
+## Modo Sensorial — Identidad de Marca
+
+Después de SOP_14 (capa visual), activar **SOP_15_SENSORY_DESIGN_BRAND_IDENTITY**:
+
+1. Definir vocabulario sensorial del producto (tono base, timbre, volumen, motion style).
+2. Implementar `useAudio.ts` hook con Web Audio API — earcons lazy, sin autoplay.
+3. Sincronizar earcons con spring physics de SOP_14 (click → earcon.click en `--dur-fast`).
+4. Implementar haptic feedback con guard `'vibrate' in navigator`.
+5. Ejecutar **Sensory Check** (Gates S01-S08) como paso final antes de release.
+
+> **Principio:** Un producto de lujo se distingue antes de que el usuario lea una sola palabra.
 
 ---
 
@@ -304,6 +319,7 @@ Never start building something to fill ambiguity. Stop and ask.
 | [11](core/SOP_11_HEALTH_CHECK.md) | HEALTH_CHECK | Antes de merge, después de deploy |
 | [12](core/SOP_12_RESOURCE_OPTIMIZATION.md) | RESOURCE_OPTIMIZATION | Sesiones > 30 minutos |
 | [14](core/SOP_14_HIGH_FIDELITY_UI_UX_MOTION.md) | **HIGH_FIDELITY_UI_UX** | **ANTES de BUILD — Dirección de Arte** |
+| [15](core/SOP_15_SENSORY_DESIGN_BRAND_IDENTITY.md) | **SENSORY_DESIGN** | **Post-BUILD — Earcons + Motion + Haptic** |
 
 ---
 
