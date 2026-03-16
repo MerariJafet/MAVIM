@@ -91,12 +91,16 @@ MAVIM/
 1. SOP_09  → Escanear entorno (scripts/mavim_scan.sh)
 2. SOP_01  → Definir INTENT_MANIFEST (problema, actores, DoD)
 3. SOP_02  → Crear ARCHITECTURE_CONTRACT.md (GSD Gate + módulos + tokens UI)
-4. BUILD   → Implementar módulos (rol: MAVIM-Developer)
-5. SOP_05  → Aplicar resilience patterns en servicios externos
-6. SOP_06  → Mantener PROGRESS_LOG.json en cada milestone
-7. SOP_08  → Correr Playwright 18 gates antes de primer commit a main
-8. SOP_11  → Health Check antes de cualquier deploy
-9. SOP_10  → Escribir COGNITIVE_BRIDGE.json al cerrar sesión
+4. SOP_14  → DIRECCIÓN DE ARTE (ART_DIRECTION.md — OBLIGATORIO antes de BUILD)
+             ↳ Definir identidad visual, paleta, tipografía, motion system
+             ↳ Activar Skills: ui-ux-pro-max + animation-libraries-expert
+             ↳ Si hay 3D: activar threejs-skills
+5. BUILD   → Implementar módulos (rol: MAVIM-Developer)
+6. SOP_05  → Aplicar resilience patterns en servicios externos
+7. SOP_06  → Mantener PROGRESS_LOG.json en cada milestone
+8. SOP_08  → Correr Playwright 18 gates + A01-A07 (SOP_14) antes de commit a main
+9. SOP_11  → Health Check antes de cualquier deploy
+10. SOP_10 → Escribir COGNITIVE_BRIDGE.json al cerrar sesión
 ```
 
 > **Si ya existe código:** El punto de entrada no es SOP_01 — es SOP_09 → SOP_07 (Refactoring).
@@ -148,19 +152,24 @@ Al finalizar sesión o cambiar de modelo, activar el **SOP_10_COGNITIVE_BRIDGE**
 
 ---
 
-## Jerarquía de SOPs (v2.0)
+## Jerarquía de SOPs (v3.1)
 
 ```
 SOP_09 ENVIRONMENT_AWARENESS  ← Activar primero en sesión nueva
 SOP_10 COGNITIVE_BRIDGE       ← Leer al inicio, escribir al finalizar
     ↓
 SOP_07 REFACTORING            ← Ley suprema en cirugías
-SOP_08 AUTOMATED_TESTING      ← Gate final obligatorio
+SOP_08 AUTOMATED_TESTING      ← Gate final obligatorio (18 gates + A01-A07)
+    ↓
+SOP_14 HIGH_FIDELITY_UI_UX    ← OBLIGATORIO antes de BUILD — Art Direction
     ↓
 SOP_01..06                    ← Arquitectura, síntesis, evaluación, resiliencia
 SOP_11 HEALTH_CHECK           ← Pre-merge, post-deploy
 SOP_12 RESOURCE_OPTIMIZATION  ← Sesiones > 30 min
 ```
+
+> **⚠️ ANTI-AI-SLOP LAW:** Shadcn sin personalización, paletas Tailwind default, tipografías
+> system-ui, y motion ausente son violaciones explícitas de MAVIM. Ver SOP_14.
 
 ---
 
@@ -228,13 +237,16 @@ Only proceed when all 5 are answered. Document the answers in the SOP's frontmat
 
 | Task | Role to assume |
 |------|---------------|
-| Starting a new project from scratch | MAVIM-Orchestrator (SOP_09 → SOP_01 → SOP_02) |
+| Starting a new project from scratch | MAVIM-Orchestrator (SOP_09 → SOP_01 → SOP_02 → SOP_14) |
 | Implementing a defined module | MAVIM-Developer |
 | Creating a new SOP | MAVIM-Architect |
 | Reviewing/auditing a SOP | MAVIM-Critic |
 | Writing Python tooling | MAVIM-Developer |
 | Integrating external standards | MAVIM-Orchestrator |
 | Responding to community questions | DevRel (use `devrel/intelligence/draft_response.py`) |
+| UI/UX design, components, animations | MAVIM-Developer + Skills: `ui-ux-pro-max`, `animation-libraries-expert` |
+| 3D scenes, WebGL, particles, shaders | MAVIM-Developer + Skill: `threejs-skills` |
+| Aesthetic surgery on existing UI | MAVIM-Orchestrator (SOP_07 + SOP_14 + SOP_08) |
 
 ---
 
@@ -291,6 +303,7 @@ Never start building something to fill ambiguity. Stop and ask.
 | [10](core/SOP_10_COGNITIVE_BRIDGE.md) | **COGNITIVE_BRIDGE** | **Al inicio y fin de sesión** |
 | [11](core/SOP_11_HEALTH_CHECK.md) | HEALTH_CHECK | Antes de merge, después de deploy |
 | [12](core/SOP_12_RESOURCE_OPTIMIZATION.md) | RESOURCE_OPTIMIZATION | Sesiones > 30 minutos |
+| [14](core/SOP_14_HIGH_FIDELITY_UI_UX_MOTION.md) | **HIGH_FIDELITY_UI_UX** | **ANTES de BUILD — Dirección de Arte** |
 
 ---
 
