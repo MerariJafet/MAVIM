@@ -328,3 +328,4 @@ Never start building something to fill ambiguity. Stop and ask.
 | Proyecto | Resultado clave |
 |----------|----------------|
 | [It's Me — Fases 14–16](showcase/itsme-phase14-16/CASE_STUDY.md) | 18/18 Playwright, bug crítico auto-detectado en < 2 min sin intervención humana |
+| [It's Me — Producción V3.1](showcase/itsme-production-v3/CASE_STUDY_PRODUCTION.md) | 10 bugs críticos de producción documentados: OAuth, DNS/Nginx, SMTP, RLS, JWT, React Query race conditions, deploy VM |
