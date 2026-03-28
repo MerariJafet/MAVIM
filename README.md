@@ -1,101 +1,325 @@
-# 🚀 MAVIM: Multi-Agentic VibeCoding Methodology
+# MAVIM — Multi-Agent VIbe coding Methodology
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Vibe Coding](https://img.shields.io/badge/Vibe--Coding-Enabled-blueviolet)](https://x.com/karpathy)
-[![Built for Agents](https://img.shields.io/badge/Built--for-Claude--Code%20%7C%20Codex-blue)](https://github.com/MerariJafet/MAVIM)
+[![Version](https://img.shields.io/badge/MAVIM-v3.0-blueviolet?style=for-the-badge)](https://github.com/MerariJafet/MAVIM)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge)](https://opensource.org/licenses/MIT)
+[![Compatible](https://img.shields.io/badge/Any%20AI%20Agent-Compatible-blue?style=for-the-badge)](https://github.com/MerariJafet/MAVIM)
+[![Self-Improving](https://img.shields.io/badge/Self--Improving-Active-success?style=for-the-badge)](https://github.com/MerariJafet/MAVIM)
+[![Grade](https://img.shields.io/badge/Grade-Enterprise-critical?style=for-the-badge)](https://github.com/MerariJafet/MAVIM)
+[![SOPs](https://img.shields.io/badge/SOPs-12%20Protocolos-orange?style=for-the-badge)](https://github.com/MerariJafet/MAVIM)
+[![Setup](https://img.shields.io/badge/Setup-1%20comando-brightgreen?style=for-the-badge)](https://github.com/MerariJafet/MAVIM/blob/main/setup.sh)
 
-### ⚡ Quick Start (The One-Click Prompt)
-Copy and paste this into your favorite Agent (Claude Code, Cursor, Codex, Windsurf):
-```text
-Use MAVIM from github.com/MerariJafet/MAVIM to build [YOUR_APP_IDEA]. Run the setup script, assume the roles, and don't stop until the progress log is 100%.
-```
-
-**MAVIM** es el primer framework diseñado específicamente para que **Agentes de IA** (Claude Code, Cursor, Codex) construyan software de grado industrial de forma autónoma, sin perder el contexto y siguiendo estándares de ingeniería Senior.
-
-### 🧠 ¿Por qué MAVIM?
-Los agentes suelen fallar en proyectos largos debido a la amnesia de contexto y la falta de estructura. MAVIM soluciona esto mediante:
-- **Estado Persistente:** Un log de progreso que sobrevive a reinicios.
-- **Arquitectura LEGO:** Monolitos modulares que evitan el código spaghetti.
-- **Protocolos de Seguridad:** Manejo de secretos y auditoría de inyecciones.
-
-### 🛠️ Quick Start for AI Agents
-Si eres un agente, simplemente lee `MAVIM.md` para entender tus instrucciones de orquestación y empieza a construir.
-
-### 🌟 GitHub Topics
-`#vibe-coding` `#agentic-ai` `#saas-framework` `#multi-agent-systems` `#autonomous-agents`
+> **MAVIM es la metodología definitiva para escalar el Vibe Coding a nivel empresarial.**
+> Elimina la deuda técnica desde la raíz. Garantiza robustez mediante SOPs ejecutables.
+> Diseñada para cualquier agente IA. Blindada con 18 gates en Chromium real. Probada en producción.
 
 ---
 
-## 🗺️ The 4 Critical Phases of MAVIM
+## El Problema que MAVIM Resuelve
 
-```text
-+-----------------------+       +-------------------------+       +------------------------+       +-------------------------+
-|      PHASE 1          |       |        PHASE 2          |       |       PHASE 3          |       |        PHASE 4          |
-|    INTENTION          | ----> |      ARCHITECTURE       | ----> |      SYNTHESIS         | ----> |      EVALUATION         |
-|                       |       |                         |       |                        |       |                         |
-| User Vibe -> Spec     |       | The LEGO Map (Modular)  |       | Parallel Dev & PRs     |       | The Gatekeeper Review   |
-| (INTENT_MANIFEST)     |       | (DATA_SCHEMA, UUIDs)    |       | (Branch isolation)     |       | (Sec, Arch, UX checks)  |
-+-----------------------+       +-------------------------+       +------------------------+       +-------------------------+
-            |                               |                                |                                |
-            v                               v                                v                                v
-+-------------------------------------------------------------------------------------------------------------------------+
-|                                    PHASE 8: CONTINUITY & CLOSED-LOOP EXECUTION                                          |
-|                         PROGRESS_LOG.json • setup_mavim.sh • MAVIM_HANDOVER_PROTOCOL.md                                 |
-+-------------------------------------------------------------------------------------------------------------------------+
+Los equipos que adoptan Vibe Coding sin metodología chocan con tres muros predecibles:
+
+| Problema | Síntoma | Costo |
+|----------|---------|-------|
+| **Amnesia de contexto** | El agente olvida las decisiones arquitectónicas a los 30 min | Rediseño constante, deuda acumulada |
+| **Cirugía ciega** | Modifica código sin entender dependencias, rompe el 20% para arreglar el 5% | Regresiones en producción |
+| **Validación superficial** | Declara "terminado" porque el código compiló, no porque funciona en real | Bugs en deploy, credibilidad destruida |
+
+**MAVIM elimina los tres con protocolos ejecutables, no teoría.**
+
+---
+
+## 🚀 Quick Start: Activación Universal MAVIM
+
+**Opción A — Un comando (recomendado):**
+
+```bash
+bash <(curl -s https://raw.githubusercontent.com/MerariJafet/MAVIM/main/setup.sh)
 ```
 
-## Estructura del Repositorio (Docs)
+**Opción B — Con autodescubrimiento para el agente:**
 
-## Fase 2: MAVIM Core SOPs (Standard Operating Procedures)
+```
+Actúa como MAVIM-ORCHESTRATOR.
+Verifica si la carpeta MAVIM existe localmente; si no, clónala desde
+https://github.com/MerariJafet/MAVIM — luego lee MAVIM.md y ejecuta
+los protocolos para [TU_TAREA].
+```
 
-El núcleo de MAVIM está cimentado en 4 fases críticas de ejecución de la tarea. Todos los agentes deben comprender y adherirse estrictamente a estas políticas:
+**Opción C — Línea de activación directa:**
 
-1. **[Fase de Intención (Vibe to Spec)](core/SOP_01_INTENTION.md):** Cómo transformar lenguaje natural y ambiguo en requisitos técnicos exactos (`INTENT_MANIFEST`).
-2. **[Fase de Arquitectura (The LEGO Map)](core/SOP_02_ARCHITECTURE.md):** Exige implementar siempre un patrón de Monolito Modular con fronteras estrictas.
-3. **[Fase de Síntesis Paralela + Multi-Agente](core/SOP_03_SYNTHESIS.md):** Protocolo de colaboración entre subagentes Claude: paralelismo, comunicación asíncrona por artefactos Git y prevención de conflictos.
-4. **[Fase de Evaluación (The Gatekeeper)](core/SOP_04_EVALUATION.md):** Controles obligatorios de calidad, UX, Seguridad y consistencia lógica pre-despliegue.
-5. **[Fase de Resiliencia (Circuit Breakers)](core/SOP_05_RESILIENCE.md):** Políticas obligatorias de reintentos (Exponential Backoff) y Cortacircuitos ante APIs LLM caídas.
-6. **[Fase de Continuidad (Memoria Persistente)](core/SOP_06_CONTINUITY.md):** Reglas para mantener una "Caja Negra" mediante un `PROGRESS_LOG.json` inmutable y protocolos de **Poda de Contexto**.
-7. **[Refactorización Quirúrgica](core/SOP_07_REFACTORING.md):** Protocolo para trabajar sobre código existente (Brownfield) sin introducir regresiones.
-8. **[Claude Model Routing](core/SOP_08_CLAUDE_MODEL_ROUTING.md):** ⭐ **NUEVO** — Selección del modelo Claude óptimo por rol: Opus para estrategia, Sonnet para código, Haiku para scraping. Incluye tabla de routing y reglas de escalamiento.
-9. **[Web Intelligence & Scraping](core/SOP_09_WEB_INTELLIGENCE.md):** ⭐ **NUEVO** — Protocolo de investigación web, extracción de contenido, análisis de diseño y CSS. Herramientas: Crawl4AI, Firecrawl, Playwright, ScrapeGraphAI. MCP servers para Claude Code.
+```bash
+git clone https://github.com/MerariJafet/MAVIM 2>/dev/null || true; cd MAVIM && cat MAVIM.md
+```
 
-## Fase 3: The Intelligence Patterns (Blueprints)
+---
 
-Modelos de referencia técnicos base ('Bloques LEGO') listos para implementar arquitectura de alta disponibilidad.
+## Flujo de los 12 SOPs
 
-0. **[Design System (Shadcn/UI)](patterns/00_DESIGN_SYSTEM_SHADCN.md):** Reglas obligatorias de Tailwind CSS, paleta de colores, Dark Mode y Skeletons para UIs Premium out-of-the-box.
-0. **[Deployment & Infra (Docker/Vercel)](patterns/00_DEPLOYMENT_DOCKER_VERCEL.md):** Exigencias de empaquetado Docker (backends), Edge (frontends) y CI/CD continuo `deploy.yml`.
-1. **[Plataforma E-Commerce](patterns/01_ECOMMERCE.md):** Flujo transaccional, separando Catálogo, Carrito, Pagos e Inventario.
-2. **[Marketplace Avanzado](patterns/02_MARKETPLACE_ADVANCED.md):** Ledger de doble entrada inmutable, Catálogo Polimórfico (JSONB) y Escrow.
-3. **[SaaS Multi-Tenant B2B](patterns/04_SAAS_MULTITENANT.md):** Aislamiento de capas (Tenants), Feature Gating y Suscripciones.
-4. **[ERP & CRM (Internal Ops)](patterns/07_ERP_CRM.md):** Desacoplamiento de flujos de venta y backoffice operativo.
-5. **[Logística On-Demand](patterns/08_ONDEMAND_LOGISTICS.md):** Indexación Espacial H3, Algoritmo de Surge Pricing y Batched Matching.
-6. **[AI App Modular (LLM Integration)](patterns/10_AI_APP_MODULAR.md):** Prevención de Prompt Injection, RAG pipeline aislado y Orchestration Core.
-7. **[Real-Time Data Analytics (Kappa)](patterns/11_REALTIME_DATA_ANALYTICS.md):** Arquitectura de streaming con Kafka y procesamiento en tiempo real.
-8. **[Web Intelligence & Scraping Pipeline](patterns/12_WEB_INTELLIGENCE_SCRAPING.md):** ⭐ **NUEVO** — Blueprint completo para pipelines de extracción web: Crawl4AI, Playwright, Firecrawl, ScrapeGraphAI. Módulos: Intelligence Collector, Content Pipeline, Design Extractor, Knowledge Store.
-9. **[Anti-Patrones (Lista Negra)](patterns/COMMON_TRAPS.md):** Prácticas estrictamente prohibidas en MAVIM (Fat controllers, IDs secuenciales, Floats en moneda, Transacciones rotas).
+```mermaid
+flowchart TD
+    A([🔄 SESIÓN NUEVA]) --> B
 
-## Fase 4: Agent Roles (System Prompts)
+    B["⚙️ SOP_09\nENVIRONMENT_AWARENESS\nbash scripts/mavim_scan.sh\n→ ENVIRONMENT_SNAPSHOT.json"]
+    B --> C
 
-El "Cerebro" de la metodología. Instrucciones y metaprompts que cada agente MAVIM debe cargar antes de operar en el repositorio para alinear su comportamiento con los SOPs.
+    C["🧠 SOP_10\nCOGNITIVE_BRIDGE\ncat COGNITIVE_BRIDGE.json\n→ Lee estado sesión anterior"]
+    C --> D{¿Proyecto nuevo?}
 
-0. **[MAVIM-Orchestrator (The Supreme Director)](roles/MAVIM_ORCHESTRATOR.md):** `claude-opus-4-6` — Rompe bucles, dicta la política suprema, lanza subagentes paralelos y da el GO/NO-GO final.
-1. **[MAVIM-Planner (The Strategic Designer)](roles/PLANNER.md):** ⭐ **NUEVO** `claude-opus-4-6` — Investiga con Web Intelligence, evalúa viabilidad y produce `SPRINT_PLAN.md` antes de la arquitectura.
-2. **[MAVIM-Architect (The Visionary)](roles/ARCHITECT.md):** `claude-opus-4-6` — Diseña los bloques LEGO y la estructura de datos basados en Monolitos Modulares.
-3. **[MAVIM-Developer (The Builder)](roles/DEVELOPER.md):** `claude-sonnet-4-6` — Construye la lógica funcional estrictamente dentro de las fronteras de los módulos asignados.
-4. **[MAVIM-Critic (The Gatekeeper)](roles/CRITIC.md):** `claude-sonnet-4-6` — Evalúa heurísticas UX, prevención de inyección AI, revisión de integridad de fronteras y cumplimiento de requerimientos.
+    D -- Sí --> E
+    D -- No --> I
 
-## Fase 5: Deep Knowledge Injection (El 100% Real)
+    E["📋 SOP_01\nINTENTION\nVibe → INTENT_MANIFEST\n(problema, actores, DoD)"]
+    E --> F["🏗️ SOP_02\nARCHITECTURE\nLEGO Map + UUIDs + Ledger"]
+    F --> G["⚡ SOP_03\nSYNTHESIS\nParallel Dev + Git Branches"]
+    G --> H["🔍 SOP_04\nEVALUATION\nSecurity + UX + Architecture"]
+    H --> J["🛡️ SOP_05\nRESILIENCE\nCircuit Breakers + Backoff"]
+    J --> K["📊 SOP_06\nCONTINUITY\nPROGRESS_LOG.json"]
 
-Para garantizar arquitecturas y código fuente de "Nivel Senior", los agentes utilizan plantillas avanzadas de validación y conocimiento profundo. Los 4 patrones arquitectónicos de la Fase 3 incluyen secciones completas con *Detalles Críticos de Implementación* (Ledgers, H3, Tenant Isolation, Fan-out, Cursor Pagination).
+    I["🔬 SOP_07\nREFACTORING\nIMPACT_MAP → cirugía quirúrgica\ncero cambios fuera del alcance"]
+    K --> I
 
-Además, se cuenta con material de auto-evaluación:
+    I --> L["🧪 SOP_08\nAUTOMATED_TESTING\n18 Playwright gates en Chromium\n→ mavim-trace.json"]
 
-1. **[MAVIM Meta-Prompts](prompts/META_PROMPTS.md):** Contiene plantillas "Chain-of-Thought" (`VIBE_TO_ARCH`, `CODE_REVIEW`) para inicializar el contexto del agente MAVIM-Architect y MAVIM-Critic respectivamente.
-2. **[Technical Evaluation Checklists](evals/CHECKLISTS.md):** La lista de validación estricta de The Gatekeeper. Cubriendo "Security Check (Zero Trust)", "Senior Architecture Check", y "UX Heuristics". Un PR no se aprueba si no pasa el 100% de los puntos de control.
+    L --> M{¿18/18 passing?}
+    M -- No --> N["🔁 Fix quirúrgico\n(SOP_07 loop)"]
+    N --> L
+    M -- Sí --> O
 
-## Fase 8: Closed-Loop Execution (Motores Auto-Sostenibles)
-Para que MAVIM pase de ser un solo "Manual" a una plataforma de despliegue ininterrumpido a lo largo del tiempo, incorpora herramientas de continuidad para agentes de IA que les impiden entrar en amnesia:
-1. **[MAVIM Handover Protocol](core/MAVIM_HANDOVER_PROTOCOL.md):** Mecanismo estandarizado para pasarse la estafeta entre Architect -> Developer -> Critic usando un sistema de tickets físicos y `PROGRESS_LOG.json`.
-2. **[Secret Injector Tool (`setup_mavim.sh`)](setup_mavim.sh):** Script interactivo para el humano (o entorno CI/CD) destinado a la generación super segura de `.env`, prohibiendo por completo la lectura o listado a los agentes de programación.
+    O["🏥 SOP_11\nHEALTH_CHECK\nDashboard GREEN/YELLOW/RED\nCODE + TESTS + API + UX"]
+    O --> P["⚡ SOP_12\nRESOURCE_OPTIMIZATION\nParallel tools + context pruning"]
+    P --> Q["✍️ Escribir COGNITIVE_BRIDGE\npython3 scripts/write_bridge.py"]
+    Q --> R([✅ SESIÓN CERRADA\ngit push])
+
+    style A fill:#6d28d9,color:#fff
+    style R fill:#059669,color:#fff
+    style M fill:#f59e0b,color:#000
+    style N fill:#dc2626,color:#fff
+    style I fill:#1d4ed8,color:#fff
+    style L fill:#1d4ed8,color:#fff
+```
+
+---
+
+## Los 5 Superpoderes de MAVIM
+
+### 1. Auto-Validación con Chromium Real
+
+```bash
+npm run test:smoke  # 18 gates en Chromium real, no jsdom
+```
+
+El MAVIM-CRITIC no aprueba ninguna cirugía sin que Playwright valide en un navegador real:
+los componentes renderizan sin errores de consola, el design system en dark mode no tiene
+colores hardcodeados, las rutas protegidas no son accesibles sin autenticación, y los estados
+de carga usan Skeleton en vez de texto plano.
+
+> **Caso real documentado (2026-03-14):** Gate 10 detectó `bg-slate-100` hardcodeado en el
+> componente `Badge`. Invisible en revisión manual. Roto en dark mode. El bucle de auto-mejora
+> lo detectó y corrigió en < 2 minutos sin intervención humana.
+
+---
+
+### 2. Refactorización Quirúrgica
+
+```
+ANTES: Editar código sin mapa → romper dependencias → debug interminable
+DESPUÉS: IMPACT_MAP.json → rama aislada → smoke test base → cirugía → validación
+```
+
+El SOP_07_REFACTORING define **precisión quirúrgica**: cero cambios fuera del alcance definido.
+Cada modificación está precedida por un mapa de impacto que identifica todas las dependencias
+del código a cambiar antes de tocar una sola línea.
+
+---
+
+### 3. Cognitive Bridge — Memoria entre Sesiones
+
+```bash
+python3 scripts/write_bridge.py  # al finalizar sesión
+```
+
+`COGNITIVE_BRIDGE.json` transfiere el estado completo entre instancias de IA:
+
+| Campo | Contenido |
+|-------|-----------|
+| `completed_tasks` | Tareas terminadas con evidencia |
+| `pending_tasks` | Backlog priorizado |
+| `adr` | Decisiones arquitectónicas con justificación (`ADR-001`, `ADR-002`...) |
+| `known_hazards` | Peligros documentados con sus fixes |
+| `first_actions` | Instrucciones exactas para el agente entrante |
+
+Compatible con Claude, GPT-4o, Gemini, y agentes locales.
+
+---
+
+### 4. Auto-Diagnóstico del Sistema
+
+```mermaid
+sequenceDiagram
+    participant FE as Frontend (React)
+    participant EB as ErrorBoundary
+    participant API as Backend (FastAPI)
+    participant AG as AI Agent
+
+    FE->>EB: Runtime error capturado
+    EB->>API: POST /api/diagnostics/frontend-error<br/>{error, correlation_id: UUID}
+    API->>API: Vincula con backend logs<br/>via X-Correlation-Id header
+    AG->>API: GET /api/diagnostics/errors
+    API->>AG: Error + contexto completo
+    AG->>FE: Fix quirúrgico aplicado
+    Note over AG,FE: Sin intervención humana
+```
+
+---
+
+### 5. Environment Awareness
+
+```bash
+bash scripts/mavim_scan.sh  # < 60 segundos, status GREEN/YELLOW/RED
+```
+
+Antes de escribir una línea de código, el agente sabe exactamente:
+
+| Dato | Por qué importa |
+|------|----------------|
+| Versiones del stack instaladas | Sin conflictos silenciosos de dependencias |
+| Puertos en uso | Sin colisiones en runtime |
+| Variables de entorno faltantes | Sin errores misteriosos en deploy |
+| Archivos sin commitear | Sin sorpresas al hacer merge |
+
+---
+
+## Los 18 Gates del MAVIM-CRITIC
+
+Todo proyecto con frontend React + Shadcn debe pasar estos gates antes de cualquier merge:
+
+| # | Gate | Por qué es crítico |
+|---|------|--------------------|
+| 01 | React monta sin errores de consola | Base de toda la app |
+| 02 | CSS vars Shadcn definidas (`--bg`, `--surface`, `--primary`) | Design system existe |
+| 03 | `data-theme=dark` cambia `--bg` a oscuro | Dark mode funciona |
+| 04 | Login: inputs + submit visibles | Flujo de entrada funcional |
+| 05 | Card: `border-color` resuelto (no transparent) | Shadcn Card renderiza |
+| 06 | Sin HTTP 5xx en JS chunks | Build íntegro |
+| 07 | Anti-FOUC: tema antes de React | Sin parpadeo en carga |
+| 08-09 | Rutas protegidas redirigen sin token | Auth guard activo |
+| 10 | Sin `bg-slate-*` en dark mode | Colores hardcodeados detectados |
+| 11 | Error de login usa `--danger` CSS var | Design system en estados error |
+| 12 | Dialog paciente: ≥3 Shadcn inputs | Formularios migrados |
+| 13 | Dialog doctor: sin errores consola | Integración form completa |
+| 14 | Dialogs sin hardcoded en dark mode | Dark mode global en modals |
+| 15-16 | Páginas usan Skeleton (no texto "Cargando...") | Loading states modernos |
+| 17 | Topbar tiene toggle dark mode | Feature visible y funcional |
+| 18 | `/app/clinics` CSS vars + Skeleton | Page completa migrada |
+
+---
+
+## Índice de SOPs (v3.0)
+
+| SOP | Nombre | Cuándo activar | Entregable |
+|-----|--------|---------------|-----------|
+| [01](core/SOP_01_INTENTION.md) | Intention | Feature nuevo | `INTENT_MANIFEST` |
+| [02](core/SOP_02_ARCHITECTURE.md) | Architecture | Diseño de módulos | `DATA_SCHEMA` |
+| [03](core/SOP_03_SYNTHESIS.md) | Synthesis | Integración | PR aislado |
+| [04](core/SOP_04_EVALUATION.md) | Evaluation | Pre-deploy | Checklist 100% |
+| [05](core/SOP_05_RESILIENCE.md) | Resilience | Diseño de errores | Circuit breakers |
+| [06](core/SOP_06_CONTINUITY.md) | Continuity | Sprints | `PROGRESS_LOG.json` |
+| [**07**](core/SOP_07_REFACTORING.md) | **Refactoring** | **Código existente** | `IMPACT_MAP.json` |
+| [**08**](core/SOP_08_AUTOMATED_TESTING.md) | **Automated Testing** | **Post-cirugía** | `mavim-trace.json` |
+| [**09**](core/SOP_09_ENVIRONMENT_AWARENESS.md) | **Environment Awareness** | **Inicio de sesión** | `ENVIRONMENT_SNAPSHOT.json` |
+| [**10**](core/SOP_10_COGNITIVE_BRIDGE.md) | **Cognitive Bridge** | **Inicio y fin de sesión** | `COGNITIVE_BRIDGE.json` |
+| [**11**](core/SOP_11_HEALTH_CHECK.md) | **Health Check** | **Pre-merge, post-deploy** | Dashboard visual |
+| [**12**](core/SOP_12_RESOURCE_OPTIMIZATION.md) | **Resource Optimization** | **Sesiones > 30 min** | Eficiencia continua |
+| [**16**](core/SOP_16_CLAUDE_MODEL_ROUTING.md) | **Claude Model Routing** | **Al asignar modelos: Opus/Sonnet/Haiku** | Tabla de routing |
+| [**17**](core/SOP_17_WEB_INTELLIGENCE.md) | **Web Intelligence** | **Al investigar o extraer datos web** | `KNOWLEDGE_LOG.md` |
+
+---
+
+## Roles del Sistema
+
+| Rol | Modelo | Responsabilidad |
+|-----|--------|----------------|
+| [MAVIM-Orchestrator](roles/MAVIM_ORCHESTRATOR.md) | `claude-opus-4-6` | Rompe bucles, dicta política suprema, lanza subagentes paralelos |
+| [MAVIM-Planner](roles/PLANNER.md) | `claude-opus-4-6` | ⭐ **Nuevo** — Investigación estratégica pre-arquitectura, produce SPRINT_PLAN.md |
+| [MAVIM-Architect](roles/ARCHITECT.md) | `claude-opus-4-6` | Diseña bloques LEGO, estructura de datos, monolito modular |
+| [MAVIM-Developer](roles/DEVELOPER.md) | `claude-sonnet-4-6` | Construye dentro de fronteras de módulos asignados |
+| [MAVIM-Critic](roles/CRITIC.md) | `claude-sonnet-4-6` | Evalúa UX, seguridad, integridad de fronteras, cumplimiento |
+| MAVIM-Scraper (sub-rol) | `claude-haiku-4-5-20251001` | Extracción masiva web, análisis de diseño CSS, investigación competidores |
+
+---
+
+## 📸 Showcase: It's Me
+
+MAVIM v2.0 fue construido y validado durante la evolución de **It's Me** — SaaS clínico
+multi-tenant con React + FastAPI + PostgreSQL.
+
+### Galería (Screenshots por añadir)
+
+| Antes | Después |
+|-------|---------|
+| ![Dark mode roto](showcase/itsme-phase14-16/assets/before-dark-mode.png) | ![Dark mode corregido](showcase/itsme-phase14-16/assets/after-dark-mode.png) |
+| *Dark mode: texto negro sobre fondo oscuro* | *Dark mode: CSS tokens correctos* |
+| ![Gate 10 fallando](showcase/itsme-phase14-16/assets/gate10-failure.png) | ![18/18 green](showcase/itsme-phase14-16/assets/playwright-18-18-green.png) |
+| *Gate 10: bg-slate-100 detectado* | *18/18 gates en verde* |
+
+> Añade tus capturas en `showcase/itsme-phase14-16/assets/` con los nombres indicados.
+
+### Métricas
+
+| Métrica | Antes (Fase 14) | Después (Fase 16) |
+|---------|----------------|------------------|
+| Archivos con colores hardcodeados | 47 | **0** |
+| Tests automatizados | 0 | **18 Playwright gates** |
+| Cobertura dark mode | ~20% | **100%** |
+| Tiempo detección bug crítico | Manual (días/nunca) | **< 2 minutos** |
+| Visibilidad errores frontend | 0% | **100% (UUID trazabilidad)** |
+| Memoria entre sesiones IA | 0% | **100% (Cognitive Bridge)** |
+
+Ver [Caso de Estudio completo →](showcase/itsme-phase14-16/CASE_STUDY.md)
+Ver [Reporte Before & After →](showcase/itsme-phase14-16/BEFORE_AFTER.md)
+Ver [Resultados Playwright →](showcase/itsme-phase14-16/PLAYWRIGHT_RESULTS.md)
+
+---
+
+## Filosofía
+
+MAVIM nació de una pregunta: ¿qué pasaría si los estándares de ingeniería senior — código
+limpio, tests reales, trazabilidad de decisiones, diseño sin deuda técnica — estuvieran
+codificados en protocolos que cualquier agente IA pudiera ejecutar de forma autónoma?
+
+La respuesta es esta metodología. No es un framework de código. Es un framework de
+**proceso**: cómo piensa, actúa, valida y transfiere conocimiento un equipo de ingeniería
+donde la IA es un miembro de primera clase.
+
+**Tres principios absolutos:**
+
+> *Si Playwright falla, la cirugía no está terminada.*
+
+> *El conocimiento de un agente no debe morir con su sesión.*
+
+> *Un agente que no conoce su entorno opera con alucinaciones de infraestructura.*
+
+---
+
+## Contribuir
+
+MAVIM es un proyecto vivo. Cada SOP emergió de un problema real en producción.
+
+Si encuentras un patrón de fallo que MAVIM no cubre:
+1. Documenta el caso en un issue: `[PATTERN] Nombre del anti-patrón`
+2. Propón el SOP o regla que lo habría prevenido
+3. Si tienes el fix implementado, PR con el nuevo patrón en `/patterns/`
+
+Ver [CONTRIBUTING.md](CONTRIBUTING.md) para guidelines completos.
+
+---
+
+## Licencia
+
+MIT — Úsalo, fórkalo, mejóralo. Si MAVIM te ayuda a construir algo, comparte el caso.
+
+---
+
+*MAVIM v3.0 — Multi-Agent VIbe coding Methodology.*
+*Forjado en producción. Validado con 18 gates en Chromium real.*
+*Proyecto piloto: [It's Me](https://github.com/MerariJafet/itsme) — SaaS clínico multi-tenant.*

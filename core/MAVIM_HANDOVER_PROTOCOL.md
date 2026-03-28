@@ -27,3 +27,16 @@ El paso de estafeta entre agentes en MAVIM NO se hace mediante memoria efímera 
 - Devuelve el control:
   - Si hay errores: Cambia el rol de vuelta a `MAVIM-Developer`, inyecta en `blockers` la lista de correcciones, y termina su turno.
   - Si es perfecto: Autoriza la fusión (merge), marca la subtarea como completada en `PROGRESS_LOG.json` y devuelve el rol al `Orchestrator` o toma el siguiente ticket.
+
+---
+
+## Nota v2.0 — Dos Archivos de Estado
+
+Este protocolo usa `PROGRESS_LOG.json` para tracking de sprint entre roles humanos y agentes. En v2.0, existe también `COGNITIVE_BRIDGE.json` (SOP_10) para transferencia de contexto entre sesiones de IA:
+
+| Archivo | Cuándo usarlo |
+|---------|--------------|
+| `PROGRESS_LOG.json` | Handoff entre roles (Architect → Developer → Critic). Estado del sprint. |
+| `COGNITIVE_BRIDGE.json` | Handoff entre sesiones de IA (fin de sesión, cambio de modelo). Estado de conocimiento. |
+
+Al hacer handoff, el agente saliente actualiza **ambos archivos**: PROGRESS_LOG para el estado de tareas, COGNITIVE_BRIDGE para el contexto técnico completo.
