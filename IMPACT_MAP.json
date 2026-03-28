@@ -1,0 +1,81 @@
+{
+  "upgrade_target": "MAVIM Methodology v1.x → v2.0",
+  "date": "2026-03-28",
+  "triggered_by": "Claude Code (MAVIM-Orchestrator)",
+  "reason": "Agregar soporte nativo para Claude multi-agente, routing de modelos por rol, y módulo de Web Intelligence (scraping)",
+  "zones_affected": [
+    {
+      "file": "MAVIM.md",
+      "impact": "HIGH",
+      "reason": "Cheat sheet maestro — debe reflejar nuevos SOPs y modelo por rol"
+    },
+    {
+      "file": "core/MAVIM_SOP_GENERAL.md",
+      "impact": "HIGH",
+      "reason": "Regla de Oro actualizada para incluir Claude model routing"
+    },
+    {
+      "file": "core/SOP_03_SYNTHESIS.md",
+      "impact": "HIGH",
+      "reason": "Protocolo multi-agente debe cubrir Claude subagents, paralelismo y handoffs"
+    },
+    {
+      "file": "roles/ROLES.md",
+      "impact": "HIGH",
+      "reason": "Nuevo rol PLANNER; todos los roles necesitan modelo Claude asignado"
+    },
+    {
+      "file": "roles/MAVIM_ORCHESTRATOR.md",
+      "impact": "MEDIUM",
+      "reason": "Actualizar con patrones Claude Teams Agent"
+    },
+    {
+      "file": "prompts/META_PROMPTS.md",
+      "impact": "MEDIUM",
+      "reason": "Nuevos prompts para scraping, planning y multi-agent handoffs"
+    },
+    {
+      "file": "evals/CHECKLISTS.md",
+      "impact": "MEDIUM",
+      "reason": "Agregar checks de scraping ético y validación multi-agente"
+    },
+    {
+      "file": "README.md",
+      "impact": "MEDIUM",
+      "reason": "Índice principal debe listar los nuevos SOPs y patterns"
+    }
+  ],
+  "new_files": [
+    {
+      "file": "INTENT_MANIFEST_UPGRADE_V2.md",
+      "type": "document",
+      "reason": "Requerido por SOP_01 para documentar este upgrade"
+    },
+    {
+      "file": "core/SOP_08_CLAUDE_MODEL_ROUTING.md",
+      "type": "sop",
+      "reason": "Protocolo de selección de modelo Claude por rol y tarea"
+    },
+    {
+      "file": "core/SOP_09_WEB_INTELLIGENCE.md",
+      "type": "sop",
+      "reason": "Módulo de scraping, extracción de contenido y diseño web para agentes"
+    },
+    {
+      "file": "roles/PLANNER.md",
+      "type": "role",
+      "reason": "Nuevo rol de planificación estratégica usando Claude Opus"
+    },
+    {
+      "file": "patterns/12_WEB_INTELLIGENCE_SCRAPING.md",
+      "type": "pattern",
+      "reason": "Blueprint de arquitectura para pipelines de web intelligence"
+    }
+  ],
+  "smoke_test": "Verificar que todos los archivos existen, no hay referencias rotas en README.md, y MAVIM.md refleja los nuevos SOPs",
+  "dependencies": {
+    "SOP_08": ["roles/ROLES.md", "MAVIM.md"],
+    "SOP_09": ["patterns/12_WEB_INTELLIGENCE_SCRAPING.md"],
+    "roles/PLANNER.md": ["roles/ROLES.md", "core/SOP_08_CLAUDE_MODEL_ROUTING.md"]
+  }
+}

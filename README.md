@@ -52,10 +52,13 @@ El núcleo de MAVIM está cimentado en 4 fases críticas de ejecución de la tar
 
 1. **[Fase de Intención (Vibe to Spec)](core/SOP_01_INTENTION.md):** Cómo transformar lenguaje natural y ambiguo en requisitos técnicos exactos (`INTENT_MANIFEST`).
 2. **[Fase de Arquitectura (The LEGO Map)](core/SOP_02_ARCHITECTURE.md):** Exige implementar siempre un patrón de Monolito Modular con fronteras estrictas.
-3. **[Fase de Síntesis Paralela](core/SOP_03_SYNTHESIS.md):** Dicta cómo iterar constructivamente sin colisionar con otros agentes usando Git Branches.
+3. **[Fase de Síntesis Paralela + Multi-Agente](core/SOP_03_SYNTHESIS.md):** Protocolo de colaboración entre subagentes Claude: paralelismo, comunicación asíncrona por artefactos Git y prevención de conflictos.
 4. **[Fase de Evaluación (The Gatekeeper)](core/SOP_04_EVALUATION.md):** Controles obligatorios de calidad, UX, Seguridad y consistencia lógica pre-despliegue.
 5. **[Fase de Resiliencia (Circuit Breakers)](core/SOP_05_RESILIENCE.md):** Políticas obligatorias de reintentos (Exponential Backoff) y Cortacircuitos ante APIs LLM caídas.
 6. **[Fase de Continuidad (Memoria Persistente)](core/SOP_06_CONTINUITY.md):** Reglas para mantener una "Caja Negra" mediante un `PROGRESS_LOG.json` inmutable y protocolos de **Poda de Contexto**.
+7. **[Refactorización Quirúrgica](core/SOP_07_REFACTORING.md):** Protocolo para trabajar sobre código existente (Brownfield) sin introducir regresiones.
+8. **[Claude Model Routing](core/SOP_08_CLAUDE_MODEL_ROUTING.md):** ⭐ **NUEVO** — Selección del modelo Claude óptimo por rol: Opus para estrategia, Sonnet para código, Haiku para scraping. Incluye tabla de routing y reglas de escalamiento.
+9. **[Web Intelligence & Scraping](core/SOP_09_WEB_INTELLIGENCE.md):** ⭐ **NUEVO** — Protocolo de investigación web, extracción de contenido, análisis de diseño y CSS. Herramientas: Crawl4AI, Firecrawl, Playwright, ScrapeGraphAI. MCP servers para Claude Code.
 
 ## Fase 3: The Intelligence Patterns (Blueprints)
 
@@ -69,16 +72,19 @@ Modelos de referencia técnicos base ('Bloques LEGO') listos para implementar ar
 4. **[ERP & CRM (Internal Ops)](patterns/07_ERP_CRM.md):** Desacoplamiento de flujos de venta y backoffice operativo.
 5. **[Logística On-Demand](patterns/08_ONDEMAND_LOGISTICS.md):** Indexación Espacial H3, Algoritmo de Surge Pricing y Batched Matching.
 6. **[AI App Modular (LLM Integration)](patterns/10_AI_APP_MODULAR.md):** Prevención de Prompt Injection, RAG pipeline aislado y Orchestration Core.
-7. **[Anti-Patrones (Lista Negra)](patterns/COMMON_TRAPS.md):** Prácticas estrictamente prohibidas en MAVIM (Fat controllers, IDs secuenciales, Floats en moneda, Transacciones rotas).
+7. **[Real-Time Data Analytics (Kappa)](patterns/11_REALTIME_DATA_ANALYTICS.md):** Arquitectura de streaming con Kafka y procesamiento en tiempo real.
+8. **[Web Intelligence & Scraping Pipeline](patterns/12_WEB_INTELLIGENCE_SCRAPING.md):** ⭐ **NUEVO** — Blueprint completo para pipelines de extracción web: Crawl4AI, Playwright, Firecrawl, ScrapeGraphAI. Módulos: Intelligence Collector, Content Pipeline, Design Extractor, Knowledge Store.
+9. **[Anti-Patrones (Lista Negra)](patterns/COMMON_TRAPS.md):** Prácticas estrictamente prohibidas en MAVIM (Fat controllers, IDs secuenciales, Floats en moneda, Transacciones rotas).
 
 ## Fase 4: Agent Roles (System Prompts)
 
 El "Cerebro" de la metodología. Instrucciones y metaprompts que cada agente MAVIM debe cargar antes de operar en el repositorio para alinear su comportamiento con los SOPs.
 
-0. **[MAVIM-Orchestrator (The Supreme Director)](roles/MAVIM_ORCHESTRATOR.md):** Rompe bucles infinitos, dicta la política suprema al resto de agentes, y asegura iteraciones positivas constantes.
-1. **[MAVIM-Architect (The Visionary)](roles/ARCHITECT.md):** Diseña los bloques LEGO y la estructura de datos basados en Monolitos Modulares.
-2. **[MAVIM-Developer (The Builder)](roles/DEVELOPER.md):** Construye la lógica funcional estrictamente dentro de las fronteras de los módulos asignados.
-3. **[MAVIM-Critic (The Gatekeeper)](roles/CRITIC.md):** Evalúa heurísticas UX, prevención de inyección AI, revisión de integridad de fronteras ("cross-imports") y cumplimiento de requerimientos lógicos.
+0. **[MAVIM-Orchestrator (The Supreme Director)](roles/MAVIM_ORCHESTRATOR.md):** `claude-opus-4-6` — Rompe bucles, dicta la política suprema, lanza subagentes paralelos y da el GO/NO-GO final.
+1. **[MAVIM-Planner (The Strategic Designer)](roles/PLANNER.md):** ⭐ **NUEVO** `claude-opus-4-6` — Investiga con Web Intelligence, evalúa viabilidad y produce `SPRINT_PLAN.md` antes de la arquitectura.
+2. **[MAVIM-Architect (The Visionary)](roles/ARCHITECT.md):** `claude-opus-4-6` — Diseña los bloques LEGO y la estructura de datos basados en Monolitos Modulares.
+3. **[MAVIM-Developer (The Builder)](roles/DEVELOPER.md):** `claude-sonnet-4-6` — Construye la lógica funcional estrictamente dentro de las fronteras de los módulos asignados.
+4. **[MAVIM-Critic (The Gatekeeper)](roles/CRITIC.md):** `claude-sonnet-4-6` — Evalúa heurísticas UX, prevención de inyección AI, revisión de integridad de fronteras y cumplimiento de requerimientos.
 
 ## Fase 5: Deep Knowledge Injection (El 100% Real)
 
