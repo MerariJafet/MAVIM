@@ -267,6 +267,27 @@ Only proceed when all 5 are answered. Document the answers in the SOP's frontmat
 
 ---
 
+## Agent Teams — Activación Directa
+
+Los agentes MAVIM están definidos en `.claude/agents/` y se activan con @-mención:
+
+```bash
+# Activar agentes por rol:
+@mavim-orchestrator   # Director (Opus) — siempre primero
+@mavim-planner        # Planificador estratégico (Opus) — greenfield
+@mavim-architect      # Diseñador de módulos (Opus) — pre-BUILD
+@mavim-developer      # Implementador (Sonnet) — un agente por módulo
+@mavim-critic         # Auditor (Sonnet) — post-implementación
+@mavim-scraper        # Web intelligence (Haiku) — investigación
+
+# Prompts listos para usar:
+cat prompts/AGENT_TEAMS_MASTER_PROMPT.md
+```
+
+Ver `core/SOP_03_SYNTHESIS.md` Parte C para la especificación completa del sistema.
+
+---
+
 ## Commands
 
 ```bash

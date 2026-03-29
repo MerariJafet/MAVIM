@@ -106,3 +106,125 @@ Si un subagente detecta cualquiera de estas condiciones, **debe detenerse** y es
 - Un conflicto con el `ARCHITECTURE_CONTRACT.md`.
 - Un bloqueo externo (API key faltante, servicio caído).
 - Más de 3 iteraciones fallidas en la misma tarea.
+
+---
+
+## Parte C: Sistema Oficial de Subagentes Claude Code (.claude/agents/)
+
+Esta sección documenta el mecanismo oficial de Claude Code para definir y activar subagentes persistentes. Los archivos en `.claude/agents/` son la implementación formal del protocolo de la Parte B.
+
+### 1. Estructura de un Subagente MAVIM
+
+Los subagentes se definen como archivos Markdown con frontmatter YAML en `.claude/agents/[nombre].md`:
+
+```yaml
+---
+name: mavim-developer          # identificador único (sin espacios)
+description: |                  # CRÍTICO: Claude Code lee esto para decidir cuándo activar
+  Cuándo usar este agente. Sé específico — esta descripción es el selector.
+model: claude-sonnet-4-6        # modelo asignado por SOP_16
+tools:                          # subset de herramientas permitidas
+  - Read
+  - Write
+  - Edit
+  - Bash
+  - Glob
+  - Grep
+permissionMode: acceptEdits     # default | acceptEdits | dontAsk | bypassPermissions
+maxTurns: 60                    # límite de turnos (evita loops infinitos)
+memory:                         # scopes de memoria persistente
+  - project                     # ~/.claude/agent-memory/[project]/
+  - user                        # ~/.claude/agent-memory/user/
+isolation: worktree             # git worktree aislado (opcional, para cirugías)
+---
+
+# Prompt del sistema del agente aquí
+```
+
+### 2. Agentes MAVIM Disponibles
+
+| Archivo | Modelo | permissionMode | Uso |
+|---------|--------|----------------|-----|
+| `mavim-orchestrator.md` | Opus 4.6 | default | Director de equipo |
+| `mavim-planner.md` | Opus 4.6 | default | Planificación estratégica |
+| `mavim-architect.md` | Opus 4.6 | default | Diseño de módulos |
+| `mavim-developer.md` | Sonnet 4.6 | acceptEdits | Implementación |
+| `mavim-critic.md` | Sonnet 4.6 | default | Auditoría y review |
+| `mavim-scraper.md` | Haiku 4.5 | default | Web intelligence |
+
+### 3. Modos de Activación
+
+**a) @-mención en el prompt:**
+```
+@mavim-orchestrator Inicia el sprint para el módulo de autenticación.
+```
+
+**b) Delegación desde el Orchestrator (Agent tool):**
+```python
+# El Orchestrator lanza subagentes con el Agent tool de Claude Code
+# Cada subagente tiene su propio contexto aislado
+Agent(
+  subagent_type="mavim-developer",  # nombre del archivo en .claude/agents/
+  prompt="Implementa /src/modules/auth según TASK_AUTH.md",
+  run_in_background=False  # True para tareas paralelas no bloqueantes
+)
+```
+
+**c) CLI con --agents flag (agentes de sesión):**
+```bash
+claude --agents '[{"name":"dev-a","model":"claude-sonnet-4-6","systemPrompt":"Implementa auth..."},{"name":"dev-b","model":"claude-sonnet-4-6","systemPrompt":"Implementa billing..."}]'
+```
+
+### 4. Aislamiento con Git Worktrees
+
+Cuando `isolation: worktree` está activo, Claude Code crea automáticamente una copia del repo en un directorio temporal. Esto garantiza:
+- **Zero conflictos de merge** durante el desarrollo paralelo.
+- Si el agente no hace cambios → worktree se elimina automáticamente.
+- Si hace cambios → worktree path + branch son retornados al Orchestrator.
+
+**Cuándo activar `isolation: worktree`:**
+- Developers en paralelo sobre el mismo repo.
+- Cualquier cirugía de refactoring (SOP_07).
+- **No activar** para agentes read-only (Critic, Scraper).
+
+### 5. Memoria Persistente de Subagentes
+
+Los agentes con `memory: [project]` pueden leer/escribir en:
+- `~/.claude/agent-memory/[project-hash]/` — compartida entre agentes del mismo proyecto
+- `~/.claude/agent-memory/user/` — compartida entre todos los proyectos del usuario
+
+**Uso en MAVIM:** El `PROGRESS_LOG.json` en el repo es el mecanismo primario de coordinación. La memoria de Claude Code (`memory:`) es secundaria para contexto de usuario/proyecto persistente entre sesiones.
+
+### 6. Hooks de Coordinación
+
+Para automatizar eventos del ciclo de vida del agente, configura en `.claude/settings.json`:
+
+```json
+{
+  "hooks": {
+    "SubagentStart": [{
+      "command": "echo 'Agent started' >> .claude/agent_activity.log"
+    }],
+    "SubagentStop": [{
+      "command": "python3 scripts/update_progress_log.py --event=stop"
+    }],
+    "PreToolUse": [{
+      "matcher": "Write",
+      "command": "python3 scripts/check_boundary.py --file=${TOOL_INPUT_PATH}"
+    }]
+  }
+}
+```
+
+**Hook PreToolUse para boundary enforcement:** El script `check_boundary.py` verifica que el Developer no está editando archivos fuera de su módulo asignado antes de permitir el Write.
+
+### 7. Checklist de Cumplimiento (Parte C)
+
+- [ ] Cada agente MAVIM tiene su archivo en `.claude/agents/[nombre].md`
+- [ ] La `description` es específica y accionable (Claude la usa como selector)
+- [ ] Modelo asignado según SOP_16 (Opus/Sonnet/Haiku por rol)
+- [ ] `permissionMode` mínimo necesario (principio de mínimo privilegio)
+- [ ] `maxTurns` definido (nunca omitir — evita loops infinitos)
+- [ ] `isolation: worktree` activo para Developers en paralelo
+- [ ] Hooks configurados para boundary enforcement en Developers
+- [ ] `PROGRESS_LOG.json` como fuente primaria de coordinación entre agentes
