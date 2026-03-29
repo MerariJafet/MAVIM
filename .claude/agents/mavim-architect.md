@@ -10,6 +10,7 @@ tools:
   - Grep
 permissionMode: default
 maxTurns: 40
+effort: high
 memory:
   - project
 ---

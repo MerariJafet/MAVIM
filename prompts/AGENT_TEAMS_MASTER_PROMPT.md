@@ -5,6 +5,17 @@
 
 ---
 
+## Sistema de Agentes MAVIM (Dos Niveles)
+
+| Sistema | Cuándo | Cómo activar |
+|---------|--------|--------------|
+| **Subagentes** `.claude/agents/` | DEFAULT — delegation, paralelismo controlado | `@mavim-[rol]` o Agent tool |
+| **Agent Teams** (experimental) | Colaboración real entre agentes independientes | `CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1` |
+
+Ver `patterns/13_AGENT_TEAMS_COORDINATION.md` para la distinción completa y cuándo usar cada uno.
+
+---
+
 ## Prompt 1: Proyecto Nuevo (Greenfield) — Equipo Completo
 
 ```

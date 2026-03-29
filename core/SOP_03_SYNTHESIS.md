@@ -218,13 +218,49 @@ Para automatizar eventos del ciclo de vida del agente, configura en `.claude/set
 
 **Hook PreToolUse para boundary enforcement:** El script `check_boundary.py` verifica que el Developer no está editando archivos fuera de su módulo asignado antes de permitir el Write.
 
-### 7. Checklist de Cumplimiento (Parte C)
+### 7. Subagentes vs Agent Teams (Distinción Crítica)
+
+**Subagentes** (`.claude/agents/`) — Sistema estable, DEFAULT en MAVIM:
+- Contexto propio; reportan resultados al agente caller
+- Coordinación via PROGRESS_LOG.json (bus asíncrono)
+- GA, version-controllable, sin feature flags
+
+**Agent Teams** — Experimental, para colaboración real entre instancias independientes:
+- Feature flag requerido: `CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1`
+- Mínimo: Claude Code v2.1.32
+- Teammates completamente independientes con mailbox directo
+- Shared task list con dependency management
+- Hooks específicos: `TeammateIdle`, `TaskCreated`, `TaskCompleted`
+- Team size óptimo: **3–5 teammates**, **5–6 tareas por teammate**
+- Overhead: ~15x tokens vs chat — solo justificable en tareas complejas
+- Limitación: sin `/resume` para teammates in-process
+
+**Ver:** `patterns/13_AGENT_TEAMS_COORDINATION.md` para la guía completa.
+
+### 8. Números Clave para Producción
+
+| Parámetro | Valor |
+|-----------|-------|
+| MEMORY.md auto-inyectado | 200 líneas / 25KB máximo |
+| Auto-compaction trigger | 95% de fill del contexto |
+| Retención de transcripts de subagentes | 30 días (`cleanupPeriodDays`) |
+| Team size óptimo | 3–5 teammates |
+| Tareas por teammate | 5–6 |
+| Overhead Agent Teams vs chat | ~15x tokens |
+| Mejora de performance (multi-agent vs single) | +90.2% (documentado por Anthropic) |
+| `effort: high` disponible en | Opus 4.6 únicamente |
+| `Agent` tool (antes llamado `Task` tool) | Renombrado en Claude Code v2.1.63 |
+
+### 9. Checklist de Cumplimiento (Parte C)
 
 - [ ] Cada agente MAVIM tiene su archivo en `.claude/agents/[nombre].md`
 - [ ] La `description` es específica y accionable (Claude la usa como selector)
 - [ ] Modelo asignado según SOP_16 (Opus/Sonnet/Haiku por rol)
+- [ ] `effort: high` en todos los agentes Opus 4.6
 - [ ] `permissionMode` mínimo necesario (principio de mínimo privilegio)
 - [ ] `maxTurns` definido (nunca omitir — evita loops infinitos)
 - [ ] `isolation: worktree` activo para Developers en paralelo
 - [ ] Hooks configurados para boundary enforcement en Developers
 - [ ] `PROGRESS_LOG.json` como fuente primaria de coordinación entre agentes
+- [ ] Si Agent Teams: feature flag activo + team size ≤ 5 + hooks TaskCompleted
+- [ ] Subagentes como DEFAULT — Agent Teams solo cuando hay comunicación real entre pares

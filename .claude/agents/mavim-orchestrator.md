@@ -14,6 +14,7 @@ tools:
   - Agent
 permissionMode: default
 maxTurns: 80
+effort: high
 memory:
   - project
   - user
